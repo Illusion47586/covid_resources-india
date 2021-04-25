@@ -15,5 +15,7 @@ All these resources can also be accessed from a spreadsheet over [here]('https:/
 
 Contribution is required to keep this thing running and data to be updated, whether you are a developer, designer or just someone who wants to update data on spreadsheet and keep the app updated, it would be very helpful.
 
-For developers: before making a new issue, consider solving previous issues and if you are solving a new one, first make that issue.
+For `developers`: before making a new issue, consider solving previous issues and if you are solving a new one, first make that issue.
 Please check the `dev` branch for more info.
+
+For `data volunteers`: Fill [this form](https://forms.gle/xtdjM3E1dHLKpniA8).
