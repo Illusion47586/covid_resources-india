@@ -1,6 +1,6 @@
-import 'package:covid_resources/core/theme/custom_icons_icons.dart';
-import 'package:covid_resources/views/widgets/buttons/icon_button.dart';
-import 'package:covid_resources/views/widgets/buttons/text_button.dart';
+import '../../core/theme/custom_icons_icons.dart';
+import '../widgets/buttons/icon_button.dart';
+import '../widgets/buttons/text_button.dart';
 import 'package:share/share.dart';
 import 'package:url_launcher/url_launcher.dart';
 

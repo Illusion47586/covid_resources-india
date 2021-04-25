@@ -1,7 +1,7 @@
 import 'package:connectivity/connectivity.dart';
-import 'package:covid_resources/data/cities.dart';
-import 'package:covid_resources/data/states.dart';
-import 'package:covid_resources/views/widgets/forms/search_bar.dart';
+import '../../data/cities.dart';
+import '../../data/states.dart';
+import '../widgets/forms/search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 

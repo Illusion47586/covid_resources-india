@@ -1,5 +1,5 @@
-import 'package:covid_resources/core/models/data_model.dart';
-import 'package:covid_resources/core/services/data_service.dart';
+import '../../core/models/data_model.dart';
+import '../../core/services/data_service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 

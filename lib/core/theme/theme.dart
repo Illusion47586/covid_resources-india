@@ -1,4 +1,4 @@
-import 'package:covid_resources/core/theme/colors.dart';
+import 'colors.dart';
 import 'package:flutter/material.dart';
 
 class ThemeHandler {

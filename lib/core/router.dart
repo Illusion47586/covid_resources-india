@@ -1,4 +1,4 @@
-import 'package:covid_resources/views/screens/main_screen.dart';
+import '../views/screens/main_screen.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get_storage/get_storage.dart';
 

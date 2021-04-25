@@ -1,7 +1,7 @@
-import 'package:covid_resources/core/models/data_model.dart';
-import 'package:covid_resources/core/theme/colors.dart';
-import 'package:covid_resources/core/theme/custom_icons_icons.dart';
-import 'package:covid_resources/views/screens/settings_screen.dart';
+import '../../core/models/data_model.dart';
+import '../../core/theme/colors.dart';
+import '../../core/theme/custom_icons_icons.dart';
+import 'settings_screen.dart';
 import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
