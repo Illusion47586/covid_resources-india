@@ -9,7 +9,7 @@ It contains details segregated by cities and basically four categories:
 - Hospital: Info about hospital beds
 - Plasma: Plasma related resources
 
-All these resources can also be accessed from a spreadsheet over [here]('https://docs.google.com/spreadsheets/d/1T5kSK1sdsXPHPqdpucIyA6-oBBm2ySILIAYYPX7DgYc').
+All these resources can also be accessed from a spreadsheet over [here](https://docs.google.com/spreadsheets/d/1T5kSK1sdsXPHPqdpucIyA6-oBBm2ySILIAYYPX7DgYc).
 
 ## Contribution
 
