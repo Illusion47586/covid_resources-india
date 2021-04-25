@@ -1,6 +1,7 @@
-import 'package:covid_resources/core/models/data_model.dart';
-import 'package:covid_resources/core/theme/colors.dart';
 import 'package:flutter/material.dart';
+
+import '../../../core/models/data_model.dart';
+import '../../../core/theme/colors.dart';
 
 const double iconSize = 35;
 

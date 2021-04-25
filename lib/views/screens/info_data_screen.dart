@@ -1,16 +1,16 @@
-import 'package:covid_resources/core/theme/custom_icons_icons.dart';
-import 'package:covid_resources/views/widgets/buttons/icon_button.dart';
-import 'package:covid_resources/views/widgets/buttons/text_button.dart';
+import 'package:enum_to_string/enum_to_string.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:share/share.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../core/models/data_model.dart';
+import '../../core/theme/custom_icons_icons.dart';
 import '../../core/theme/spacing.dart';
 import '../../core/theme/typography.dart';
 import '../controllers/main_controller.dart';
-import 'package:enum_to_string/enum_to_string.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import '../widgets/buttons/icon_button.dart';
+import '../widgets/buttons/text_button.dart';
 
 class InfoDataScreen extends StatelessWidget {
   final Issue issue;

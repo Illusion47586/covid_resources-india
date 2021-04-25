@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 import 'package:logger/logger.dart';
+import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
 import '../../../core/theme/spacing.dart';
 import '../../../core/theme/typography.dart';
