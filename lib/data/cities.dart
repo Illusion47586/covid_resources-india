@@ -19,8 +19,7 @@ List<List<String>> cities = [
       .split(' | ')
       .map((e) => e.toLowerCase().trim())
       .toList(),
-  // ignore: prefer_single_quotes
-  " Chandigarh | Mani Marja"
+  ' Chandigarh | Mani Marja'
       .split(' | ')
       .map((e) => e.toLowerCase().trim())
       .toList(),
