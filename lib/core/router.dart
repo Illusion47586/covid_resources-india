@@ -4,7 +4,6 @@ import 'package:get_storage/get_storage.dart';
 
 import '../views/screens/city_search_screen.dart';
 import '../views/screens/state_search_screen.dart';
-import '../views/screens/test_screen.dart';
 
 class RouteHandler {
   static String initialRoute = GetStorage().read('cityIndex') == null
@@ -12,10 +11,6 @@ class RouteHandler {
       : MainScreen.id;
 
   static List<GetPage<dynamic>> routes = [
-    GetPage(
-      name: TestScreen.id,
-      page: () => TestScreen(),
-    ),
     GetPage(
       name: MainScreen.id,
       page: () => MainScreen(),
