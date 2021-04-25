@@ -1,16 +1,16 @@
-import 'package:enum_to_string/enum_to_string.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import '../../core/theme/custom_icons_icons.dart';
+import '../widgets/buttons/icon_button.dart';
+import '../widgets/buttons/text_button.dart';
 import 'package:share/share.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../core/models/data_model.dart';
-import '../../core/theme/custom_icons_icons.dart';
 import '../../core/theme/spacing.dart';
 import '../../core/theme/typography.dart';
 import '../controllers/main_controller.dart';
-import '../widgets/buttons/icon_button.dart';
-import '../widgets/buttons/text_button.dart';
+import 'package:enum_to_string/enum_to_string.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class InfoDataScreen extends StatelessWidget {
   final Issue issue;
@@ -48,7 +48,7 @@ class InfoDataScreen extends StatelessWidget {
                         right: AppSpacing.screenPadding.right,
                         bottom: 20,
                       ),
-                      physics: BouncingScrollPhysics(),
+                      physics: const BouncingScrollPhysics(),
                       itemBuilder: (context, index) =>
                           buildItem(snapshot, index),
                       itemCount: snapshot.data.length,
@@ -63,14 +63,14 @@ class InfoDataScreen extends StatelessWidget {
                         bottom: 20,
                       ),
                       child: Container(
-                        padding: EdgeInsets.all(20),
+                        padding: const EdgeInsets.all(20),
                         width: double.infinity,
                         decoration: BoxDecoration(
                           color: Colors.white,
                           boxShadow: [
                             BoxShadow(
                               color: Colors.grey.shade200,
-                              offset: Offset(10, 10),
+                              offset: const Offset(10, 10),
                               blurRadius: 20,
                             ),
                           ],
@@ -98,7 +98,7 @@ class InfoDataScreen extends StatelessWidget {
                       ),
                     );
                   else
-                    return Center(
+                    return const Center(
                       child: SizedBox(
                         height: 60,
                         width: 60,
@@ -116,14 +116,14 @@ class InfoDataScreen extends StatelessWidget {
 
   Container buildItem(AsyncSnapshot<List<DataModel>> snapshot, int index) {
     return Container(
-      padding: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
       width: double.infinity,
       decoration: BoxDecoration(
         color: Colors.white,
         boxShadow: [
           BoxShadow(
             color: Colors.grey.shade200,
-            offset: Offset(10, 10),
+            offset: const Offset(10, 10),
             blurRadius: 20,
           ),
         ],
@@ -145,7 +145,7 @@ class InfoDataScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 20,
               ),
               SizedBox(
@@ -186,7 +186,7 @@ class InfoDataScreen extends StatelessWidget {
                               color: Colors.grey,
                             ),
                           ),
-                          SizedBox(width: 20),
+                          const SizedBox(width: 20),
                           Text(
                             snapshot.data[index].location,
                             style: kTextTitle2Style.copyWith(
@@ -198,12 +198,12 @@ class InfoDataScreen extends StatelessWidget {
                         ],
                       ),
                     )
-                  : SizedBox(),
+                  : const SizedBox(),
               snapshot.data[index].details != null
-                  ? SizedBox(
+                  ? const SizedBox(
                       width: 20,
                     )
-                  : SizedBox(),
+                  : const SizedBox(),
               Row(
                 children: [
                   CustomIconButton.issue(
@@ -211,7 +211,7 @@ class InfoDataScreen extends StatelessWidget {
                     icon: Icons.map,
                     function: () => launch(snapshot.data[index].locationURL),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 15,
                   ),
                   CustomIconButton.issue(
