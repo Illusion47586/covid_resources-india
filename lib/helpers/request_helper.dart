@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
-import 'package:retry/retry.dart';
 
 class RequestHelper {
   static Dio dio = Dio(BaseOptions(connectTimeout: 10000));

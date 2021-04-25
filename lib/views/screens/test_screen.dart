@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
 import '../../core/theme/spacing.dart';
-import '../widgets/buttons/icon_button.dart';
 
 class TestScreen extends StatefulWidget {
   static const String id = '/test-screen';

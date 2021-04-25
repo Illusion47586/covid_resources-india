@@ -16,7 +16,7 @@ class DataService extends GetxService {
   int cityIndex;
   final GetStorage box = GetStorage();
   final Map<Issue, StreamController<List<DataModel>>> dataStream =
-      Map<Issue, StreamController<List<DataModel>>>();
+      <Issue, StreamController<List<DataModel>>>{};
 
   @override
   void onInit() {
@@ -42,8 +42,8 @@ class DataService extends GetxService {
   }
 
   void _autoRefresh(Issue thisIssue) {
-    final Timer timer = Timer.periodic(
-      Duration(minutes: 15),
+    Timer.periodic(
+      const Duration(minutes: 15),
       (timer) async {
         await requestData(thisIssue);
       },
@@ -52,6 +52,7 @@ class DataService extends GetxService {
 
   Future<void> requestData(Issue thisIssue) async {
     const String deployId =
+        // ignore: lines_longer_than_80_chars
         'AKfycbwiFSsBlcMXfgLZRdmURrs-kBDHJNbQpcjTtX09_c6a1NdADjRcWtwN1HVO2z7BoG9qyw';
 
     final Uri uri = Uri(
