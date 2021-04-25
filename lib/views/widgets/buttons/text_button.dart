@@ -5,6 +5,7 @@ import '../../../core/models/data_model.dart';
 import '../../../core/theme/colors.dart';
 import '../../../core/theme/typography.dart';
 
+// ignore: must_be_immutable
 class CustomTextButton extends StatelessWidget {
   CustomTextButton({
     this.icon,
@@ -152,7 +153,7 @@ class CustomTextButton extends StatelessWidget {
             elevation: MaterialStateProperty.all(elevation),
           ),
       child: ConstrainedBox(
-        constraints: BoxConstraints(
+        constraints: const BoxConstraints(
           maxHeight: 60,
           maxWidth: double.infinity,
         ),
