@@ -9,7 +9,7 @@ class MainController extends GetxController {
   final PageController pageController = PageController();
   final DataService dataService = Get.find();
   final Map<Issue, Stream<List<DataModel>>> dataStream =
-      Map<Issue, Stream<List<DataModel>>>();
+      <Issue, Stream<List<DataModel>>>{};
 
   @override
   Future<void> onInit() async {
@@ -24,7 +24,7 @@ class MainController extends GetxController {
     selectedIndex.value = index;
     pageController.animateToPage(
       index,
-      duration: Duration(milliseconds: 300),
+      duration: const Duration(milliseconds: 300),
       curve: Curves.easeInOut,
     );
     update();
