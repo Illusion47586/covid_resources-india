@@ -1,0 +1,43 @@
+---
+name: covid_resources
+description: A new Flutter project.
+publish_to: none
+version: 1.0.0+1
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+dependencies:
+  flutter:
+    sdk: flutter
+  auto_size_text: ^2.1.0
+  connectivity: ^3.0.3
+  cupertino_icons: ^1.0.2
+  dio: ^4.0.0
+  enum_to_string: ^2.0.1
+  flashy_tab_bar2: ^0.0.3
+  get: ^4.1.4
+  get_storage: ^2.0.2
+  just_debounce_it: ^4.0.0+2
+  material_floating_search_bar: ^0.3.4
+  retry: ^3.1.0
+  share: ^2.0.1
+  url_launcher: ^6.0.3
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  logger: ^1.0.0
+  pretty_dio_logger: ^1.1.1
+flutter:
+  uses-material-design: true
+  fonts:
+    - family: manrope
+      fonts:
+        - asset: assets/fonts/Manrope-Regular.ttf
+        - asset: assets/fonts/Manrope-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Manrope-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Manrope-Bold.ttf
+          weight: 700
+    - family: CustomIcons
+      fonts:
+        - asset: assets/fonts/CustomIcons.ttf
