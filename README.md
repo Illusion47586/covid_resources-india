@@ -1,16 +1,19 @@
 # covid_resources
 
-A new Flutter project.
+A simple app that gives you all required covid related resources in one place, contributed and maintained by public, for public.
 
-## Getting Started
+It contains details segregated by cities and basically four categories:
 
-This project is a starting point for a Flutter application.
+- Vaccine: Remdivisir and related stuff
+- Oxygen: Info about oxygen cylinders
+- Hospital: Info about hospital beds
+- Plasma: Plasma related resources
 
-A few resources to get you started if this is your first Flutter project:
+All these resources can also be accessed from a spreadsheet over [here]('https://docs.google.com/spreadsheets/d/1T5kSK1sdsXPHPqdpucIyA6-oBBm2ySILIAYYPX7DgYc').
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Contribution
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Contribution is required to keep this thing running and data to be updated, whether you are a developer, designer or just someone who wants to update data on spreadsheet and keep the app updated, it would be very helpful.
+
+For developers: before making a new issue, consider solving previous issues and if you are solving a new one, first make that issue.
+Please check the `dev` branch for more info.
