@@ -20,8 +20,7 @@ class SettingsScreen extends StatelessWidget {
         children: [
           CustomTextButton(
             text: 'Change location',
-            function: () =>
-                navigator.pushReplacementNamed(StateSearchScreen.id),
+            function: () => navigator.popAndPushNamed(StateSearchScreen.id),
           ),
           AppSpacing.bigVerticalSpacer,
           CustomTextButton.red(

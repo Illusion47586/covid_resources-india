@@ -34,10 +34,10 @@ class StateSearchScreen extends StatelessWidget {
                           results[index],
                           style: kTextTitle2Style.copyWith(fontSize: 18),
                         ),
-                        onTap: () {
+                        onTap: () async {
                           print(stateList.indexOf(results[index]));
-                          controller.updateIndex =
-                              stateList.indexOf(results[index]);
+                          await controller
+                              .updateIndex(stateList.indexOf(results[index]));
                           Get.toNamed(CitySearchScreen.id);
                         },
                       ),
@@ -52,9 +52,10 @@ class StateSearchScreen extends StatelessWidget {
                                 e,
                                 style: kTextTitle2Style.copyWith(fontSize: 18),
                               ),
-                              onTap: () {
+                              onTap: () async {
                                 print(stateList.indexOf(e));
-                                controller.updateIndex = stateList.indexOf(e);
+                                await controller
+                                    .updateIndex(stateList.indexOf(e));
                                 Get.toNamed(CitySearchScreen.id);
                               },
                             ),
