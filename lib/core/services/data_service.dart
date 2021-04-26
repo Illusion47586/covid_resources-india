@@ -2,43 +2,39 @@ import 'dart:async';
 
 import 'package:enum_to_string/enum_to_string.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 
 import '../../data/cities.dart';
 import '../../data/states.dart';
 import '../../helpers/request_helper.dart';
-import '../../views/screens/main_screen.dart';
-import '../../views/screens/state_search_screen.dart';
+import '../../main.dart';
 import '../models/data_model.dart';
 
 class DataService extends GetxService {
-  int stateIndex;
-  int cityIndex;
-  final GetStorage box = GetStorage();
+  Rx<int> stateIndex = (-1).obs;
+  Rx<int> cityIndex = (-1).obs;
   final Map<Issue, StreamController<List<DataModel>>> dataStream =
       <Issue, StreamController<List<DataModel>>>{};
 
   @override
-  void onInit() {
+  Future<void> onInit() async {
     for (var i in Issue.values) {
       dataStream[i] = StreamController<List<DataModel>>.broadcast();
       _autoRefresh(i);
     }
     getIndices();
-    handlerFunction();
     super.onInit();
   }
 
   void getIndices() {
-    stateIndex = box.read('stateIndex');
-    cityIndex = box.read('cityIndex');
+    stateIndex.value = prefs.getInt('stateIndex') ?? -1;
+    cityIndex.value = prefs.getInt('cityIndex') ?? -1;
   }
 
   Future<void> writeIndices(int stateIndex, int cityIndex) async {
-    this.stateIndex = stateIndex;
-    this.cityIndex = cityIndex;
-    await box.write('stateIndex', stateIndex);
-    await box.write('cityIndex', cityIndex);
+    this.stateIndex.value = stateIndex;
+    this.cityIndex.value = cityIndex;
+    await prefs.setInt('stateIndex', stateIndex);
+    await prefs.setInt('cityIndex', cityIndex);
   }
 
   void _autoRefresh(Issue thisIssue) {
@@ -60,8 +56,8 @@ class DataService extends GetxService {
       host: 'script.google.com',
       path: '/macros/s/$deployId/exec',
       queryParameters: {
-        'state': stateList[stateIndex],
-        'city': cities[stateIndex][cityIndex],
+        'state': stateList[stateIndex.value],
+        'city': cities[stateIndex.value][cityIndex.value],
         'issue': EnumToString.convertToString(thisIssue),
       },
     );
@@ -80,6 +76,12 @@ class DataService extends GetxService {
     }
   }
 
+  String getCurrentLocation() {
+    return cities[stateIndex.value][cityIndex.value] +
+        '\n' +
+        stateList[stateIndex.value];
+  }
+
   bool setData(Issue thisIssue, Map<String, dynamic> map) {
     dataStream[thisIssue].add(List.generate(
       map['length'],
@@ -87,16 +89,5 @@ class DataService extends GetxService {
     ));
 
     return true;
-  }
-
-  void handlerFunction() {
-    GetStorage().listenKey('cityIndex', (val) {
-      if (val != null) {
-        navigator.pop();
-        navigator.pushReplacementNamed(MainScreen.id);
-      } else {
-        navigator.pushReplacementNamed(StateSearchScreen.id);
-      }
-    });
   }
 }

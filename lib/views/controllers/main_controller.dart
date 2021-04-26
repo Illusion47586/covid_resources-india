@@ -12,6 +12,7 @@ class MainController extends GetxController {
 
   @override
   Future<void> onInit() async {
+    dataService.getIndices();
     for (var i in Issue.values) {
       dataStream[i] = dataService.dataStream[i].stream;
       await dataService.requestData(i);

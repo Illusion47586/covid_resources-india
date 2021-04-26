@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 import 'package:logger/logger.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'core/router.dart';
 import 'core/theme/theme.dart';
@@ -15,10 +15,11 @@ class MyBehavior extends ScrollBehavior {
   }
 }
 
+SharedPreferences prefs;
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await GetStorage.init();
-
+  prefs = await SharedPreferences.getInstance();
   runApp(MyApp());
 }
 
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
       defaultTransition: Transition.fade,
       transitionDuration: const Duration(milliseconds: 300),
       initialRoute: RouteHandler.initialRoute,
+      unknownRoute: RouteHandler.unknownRoute,
       getPages: RouteHandler.routes,
       builder: (context, child) {
         return MediaQuery(

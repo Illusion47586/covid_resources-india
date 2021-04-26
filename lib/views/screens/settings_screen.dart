@@ -1,10 +1,12 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:get_storage/get_storage.dart';
+import 'package:get/get.dart';
 import 'package:share/share.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../core/theme/spacing.dart';
 import '../widgets/buttons/text_button.dart';
+import 'state_search_screen.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({Key key}) : super(key: key);
@@ -18,7 +20,8 @@ class SettingsScreen extends StatelessWidget {
         children: [
           CustomTextButton(
             text: 'Change location',
-            function: () => GetStorage().write('cityIndex', null),
+            function: () =>
+                navigator.pushReplacementNamed(StateSearchScreen.id),
           ),
           AppSpacing.bigVerticalSpacer,
           CustomTextButton.red(
