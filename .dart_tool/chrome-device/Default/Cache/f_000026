@@ -1,0 +1,787 @@
+define(['dart_sdk', 'packages/logger/src/ansi_color.dart'], (function load__packages__logger__src__log_filter_dart(dart_sdk, packages__logger__src__ansi_color$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const _interceptors = dart_sdk._interceptors;
+  const convert = dart_sdk.convert;
+  const _js_helper = dart_sdk._js_helper;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const ansi_color = packages__logger__src__ansi_color$46dart.src__ansi_color;
+  var log_filter = Object.create(dart.library);
+  var log_output = Object.create(dart.library);
+  var console_output = Object.create(dart.library);
+  var log_printer = Object.create(dart.library);
+  var pretty_printer = Object.create(dart.library);
+  var logger = Object.create(dart.library);
+  var development_filter = Object.create(dart.library);
+  var $forEach = dartx.forEach;
+  var $toString = dartx.toString;
+  var $split = dartx.split;
+  var $length = dartx.length;
+  var $sublist = dartx.sublist;
+  var $isEmpty = dartx.isEmpty;
+  var $replaceFirst = dartx.replaceFirst;
+  var $add = dartx.add;
+  var $join = dartx.join;
+  var $matchAsPrefix = dartx.matchAsPrefix;
+  var $startsWith = dartx.startsWith;
+  var $_get = dartx._get;
+  var $isNotEmpty = dartx.isNotEmpty;
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    ObjectN: () => (T.ObjectN = dart.constFn(dart.nullable(core.Object)))(),
+    ObjectNTovoid: () => (T.ObjectNTovoid = dart.constFn(dart.fnType(dart.void, [T.ObjectN()])))(),
+    JSArrayOfString: () => (T.JSArrayOfString = dart.constFn(_interceptors.JSArray$(core.String)))(),
+    intToString: () => (T.intToString = dart.constFn(dart.fnType(core.String, [core.int])))(),
+    LinkedMapOfLevel$AnsiColor: () => (T.LinkedMapOfLevel$AnsiColor = dart.constFn(_js_helper.LinkedMap$(logger.Level, ansi_color.AnsiColor)))(),
+    LinkedMapOfLevel$String: () => (T.LinkedMapOfLevel$String = dart.constFn(_js_helper.LinkedMap$(logger.Level, core.String)))(),
+    LevelL: () => (T.LevelL = dart.constFn(dart.legacy(logger.Level)))(),
+    VoidTobool: () => (T.VoidTobool = dart.constFn(dart.fnType(core.bool, [])))()
+  };
+  var T$Eval = Object.assign({
+    _: () => T$Eval
+  }, T);
+  var S = {
+    _: () => S
+  };
+  var S$Eval = Object.assign({
+    _: () => S$Eval
+  }, S);
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.fn(core.print, T.ObjectNTovoid());
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: logger.Level.prototype,
+        [_name$]: "Level.verbose",
+        index: 0
+      });
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: logger.Level.prototype,
+        [_name$]: "Level.debug",
+        index: 1
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: logger.Level.prototype,
+        [_name$]: "Level.info",
+        index: 2
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: logger.Level.prototype,
+        [_name$]: "Level.warning",
+        index: 3
+      });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: logger.Level.prototype,
+        [_name$]: "Level.error",
+        index: 4
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: logger.Level.prototype,
+        [_name$]: "Level.wtf",
+        index: 5
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: logger.Level.prototype,
+        [_name$]: "Level.nothing",
+        index: 6
+      });
+    },
+    get C8() {
+      return C[8] = dart.constList([C[1] || CT.C1, C[2] || CT.C2, C[3] || CT.C3, C[4] || CT.C4, C[5] || CT.C5, C[6] || CT.C6, C[7] || CT.C7], T.LevelL());
+    }
+  }, false);
+  var C = Array(9).fill(void 0);
+  var I = [
+    "package:logger/src/log_filter.dart",
+    "package:logger/src/log_output.dart",
+    "file:///C:/Users/dhruv/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/logger-1.0.0/lib/src/outputs/console_output.dart",
+    "package:logger/src/outputs/console_output.dart",
+    "package:logger/src/log_printer.dart",
+    "file:///C:/Users/dhruv/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/logger-1.0.0/lib/src/printers/pretty_printer.dart",
+    "package:logger/src/printers/pretty_printer.dart",
+    "file:///C:/Users/dhruv/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/logger-1.0.0/lib/src/logger.dart",
+    "package:logger/src/logger.dart",
+    "file:///C:/Users/dhruv/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/logger-1.0.0/lib/src/filters/development_filter.dart",
+    "package:logger/src/filters/development_filter.dart"
+  ];
+  var level = dart.privateName(log_filter, "LogFilter.level");
+  log_filter.LogFilter = class LogFilter extends core.Object {
+    get level() {
+      return this[level];
+    }
+    set level(value) {
+      this[level] = value;
+    }
+    init() {
+    }
+    destroy() {
+    }
+  };
+  (log_filter.LogFilter.new = function() {
+    this[level] = null;
+    ;
+  }).prototype = log_filter.LogFilter.prototype;
+  dart.addTypeTests(log_filter.LogFilter);
+  dart.addTypeCaches(log_filter.LogFilter);
+  dart.setMethodSignature(log_filter.LogFilter, () => ({
+    __proto__: dart.getMethods(log_filter.LogFilter.__proto__),
+    init: dart.fnType(dart.void, []),
+    destroy: dart.fnType(dart.void, [])
+  }));
+  dart.setLibraryUri(log_filter.LogFilter, I[0]);
+  dart.setFieldSignature(log_filter.LogFilter, () => ({
+    __proto__: dart.getFields(log_filter.LogFilter.__proto__),
+    level: dart.fieldType(dart.nullable(logger.Level))
+  }));
+  log_output.LogOutput = class LogOutput extends core.Object {
+    init() {
+    }
+    destroy() {
+    }
+  };
+  (log_output.LogOutput.new = function() {
+    ;
+  }).prototype = log_output.LogOutput.prototype;
+  dart.addTypeTests(log_output.LogOutput);
+  dart.addTypeCaches(log_output.LogOutput);
+  dart.setMethodSignature(log_output.LogOutput, () => ({
+    __proto__: dart.getMethods(log_output.LogOutput.__proto__),
+    init: dart.fnType(dart.void, []),
+    destroy: dart.fnType(dart.void, [])
+  }));
+  dart.setLibraryUri(log_output.LogOutput, I[1]);
+  console_output.ConsoleOutput = class ConsoleOutput extends log_output.LogOutput {
+    output(event) {
+      if (event == null) dart.nullFailed(I[2], 9, 27, "event");
+      event.lines[$forEach](C[0] || CT.C0);
+    }
+  };
+  (console_output.ConsoleOutput.new = function() {
+    ;
+  }).prototype = console_output.ConsoleOutput.prototype;
+  dart.addTypeTests(console_output.ConsoleOutput);
+  dart.addTypeCaches(console_output.ConsoleOutput);
+  dart.setMethodSignature(console_output.ConsoleOutput, () => ({
+    __proto__: dart.getMethods(console_output.ConsoleOutput.__proto__),
+    output: dart.fnType(dart.void, [logger.OutputEvent])
+  }));
+  dart.setLibraryUri(console_output.ConsoleOutput, I[3]);
+  log_printer.LogPrinter = class LogPrinter extends core.Object {
+    init() {
+    }
+    destroy() {
+    }
+  };
+  (log_printer.LogPrinter.new = function() {
+    ;
+  }).prototype = log_printer.LogPrinter.prototype;
+  dart.addTypeTests(log_printer.LogPrinter);
+  dart.addTypeCaches(log_printer.LogPrinter);
+  dart.setMethodSignature(log_printer.LogPrinter, () => ({
+    __proto__: dart.getMethods(log_printer.LogPrinter.__proto__),
+    init: dart.fnType(dart.void, []),
+    destroy: dart.fnType(dart.void, [])
+  }));
+  dart.setLibraryUri(log_printer.LogPrinter, I[4]);
+  var stackTraceBeginIndex$ = dart.privateName(pretty_printer, "PrettyPrinter.stackTraceBeginIndex");
+  var methodCount$ = dart.privateName(pretty_printer, "PrettyPrinter.methodCount");
+  var errorMethodCount$ = dart.privateName(pretty_printer, "PrettyPrinter.errorMethodCount");
+  var lineLength$ = dart.privateName(pretty_printer, "PrettyPrinter.lineLength");
+  var colors$ = dart.privateName(pretty_printer, "PrettyPrinter.colors");
+  var printEmojis$ = dart.privateName(pretty_printer, "PrettyPrinter.printEmojis");
+  var printTime$ = dart.privateName(pretty_printer, "PrettyPrinter.printTime");
+  var _topBorder = dart.privateName(pretty_printer, "_topBorder");
+  var _middleBorder = dart.privateName(pretty_printer, "_middleBorder");
+  var _bottomBorder = dart.privateName(pretty_printer, "_bottomBorder");
+  var _formatAndPrint = dart.privateName(pretty_printer, "_formatAndPrint");
+  var _discardDeviceStacktraceLine = dart.privateName(pretty_printer, "_discardDeviceStacktraceLine");
+  var _discardWebStacktraceLine = dart.privateName(pretty_printer, "_discardWebStacktraceLine");
+  var _discardBrowserStacktraceLine = dart.privateName(pretty_printer, "_discardBrowserStacktraceLine");
+  var _getLevelColor = dart.privateName(pretty_printer, "_getLevelColor");
+  var _getErrorColor = dart.privateName(pretty_printer, "_getErrorColor");
+  var _getEmoji = dart.privateName(pretty_printer, "_getEmoji");
+  pretty_printer.PrettyPrinter = class PrettyPrinter extends log_printer.LogPrinter {
+    get stackTraceBeginIndex() {
+      return this[stackTraceBeginIndex$];
+    }
+    set stackTraceBeginIndex(value) {
+      super.stackTraceBeginIndex = value;
+    }
+    get methodCount() {
+      return this[methodCount$];
+    }
+    set methodCount(value) {
+      super.methodCount = value;
+    }
+    get errorMethodCount() {
+      return this[errorMethodCount$];
+    }
+    set errorMethodCount(value) {
+      super.errorMethodCount = value;
+    }
+    get lineLength() {
+      return this[lineLength$];
+    }
+    set lineLength(value) {
+      super.lineLength = value;
+    }
+    get colors() {
+      return this[colors$];
+    }
+    set colors(value) {
+      super.colors = value;
+    }
+    get printEmojis() {
+      return this[printEmojis$];
+    }
+    set printEmojis(value) {
+      super.printEmojis = value;
+    }
+    get printTime() {
+      return this[printTime$];
+    }
+    set printTime(value) {
+      super.printTime = value;
+    }
+    log(event) {
+      let t0;
+      if (event == null) dart.nullFailed(I[5], 106, 29, "event");
+      let messageStr = this.stringifyMessage(event.message);
+      let stackTraceStr = null;
+      if (event.stackTrace == null) {
+        if (dart.notNull(this.methodCount) > 0) {
+          stackTraceStr = this.formatStackTrace(core.StackTrace.current, this.methodCount);
+        }
+      } else if (dart.notNull(this.errorMethodCount) > 0) {
+        stackTraceStr = this.formatStackTrace(event.stackTrace, this.errorMethodCount);
+      }
+      let errorStr = (t0 = event.error, t0 == null ? null : dart.toString(t0));
+      let timeStr = null;
+      if (dart.test(this.printTime)) {
+        timeStr = this.getTime();
+      }
+      return this[_formatAndPrint](event.level, messageStr, timeStr, errorStr, stackTraceStr);
+    }
+    formatStackTrace(stackTrace, methodCount) {
+      if (methodCount == null) dart.nullFailed(I[5], 134, 56, "methodCount");
+      let lines = dart.toString(stackTrace)[$split]("\n");
+      if (dart.notNull(this.stackTraceBeginIndex) > 0 && dart.notNull(this.stackTraceBeginIndex) < dart.notNull(lines[$length]) - 1) {
+        lines = lines[$sublist](this.stackTraceBeginIndex);
+      }
+      let formatted = T.JSArrayOfString().of([]);
+      let count = 0;
+      for (let line of lines) {
+        if (dart.test(this[_discardDeviceStacktraceLine](line)) || dart.test(this[_discardWebStacktraceLine](line)) || dart.test(this[_discardBrowserStacktraceLine](line)) || line[$isEmpty]) {
+          continue;
+        }
+        formatted[$add]("#" + dart.str(count) + "   " + line[$replaceFirst](core.RegExp.new("#\\d+\\s+"), ""));
+        if ((count = count + 1) === methodCount) {
+          break;
+        }
+      }
+      if (dart.test(formatted[$isEmpty])) {
+        return null;
+      } else {
+        return formatted[$join]("\n");
+      }
+    }
+    [_discardDeviceStacktraceLine](line) {
+      if (line == null) dart.nullFailed(I[5], 161, 44, "line");
+      let match = pretty_printer.PrettyPrinter._deviceStackTraceRegex[$matchAsPrefix](line);
+      if (match == null) {
+        return false;
+      }
+      return dart.nullCheck(match.group(2))[$startsWith]("package:logger");
+    }
+    [_discardWebStacktraceLine](line) {
+      if (line == null) dart.nullFailed(I[5], 169, 41, "line");
+      let match = pretty_printer.PrettyPrinter._webStackTraceRegex[$matchAsPrefix](line);
+      if (match == null) {
+        return false;
+      }
+      return dart.nullCheck(match.group(1))[$startsWith]("packages/logger") || dart.nullCheck(match.group(1))[$startsWith]("dart-sdk/lib");
+    }
+    [_discardBrowserStacktraceLine](line) {
+      if (line == null) dart.nullFailed(I[5], 178, 45, "line");
+      let match = pretty_printer.PrettyPrinter._browserStackTraceRegex[$matchAsPrefix](line);
+      if (match == null) {
+        return false;
+      }
+      return dart.nullCheck(match.group(1))[$startsWith]("package:logger") || dart.nullCheck(match.group(1))[$startsWith]("dart:");
+    }
+    getTime() {
+      function _threeDigits(n) {
+        if (n == null) dart.nullFailed(I[5], 188, 29, "n");
+        if (dart.notNull(n) >= 100) return dart.str(n);
+        if (dart.notNull(n) >= 10) return "0" + dart.str(n);
+        return "00" + dart.str(n);
+      }
+      dart.fn(_threeDigits, T.intToString());
+      function _twoDigits(n) {
+        if (n == null) dart.nullFailed(I[5], 194, 27, "n");
+        if (dart.notNull(n) >= 10) return dart.str(n);
+        return "0" + dart.str(n);
+      }
+      dart.fn(_twoDigits, T.intToString());
+      let now = new core.DateTime.now();
+      let h = _twoDigits(now.hour);
+      let min = _twoDigits(now.minute);
+      let sec = _twoDigits(now.second);
+      let ms = _threeDigits(now.millisecond);
+      let timeSinceStart = dart.toString(now.difference(dart.nullCheck(pretty_printer.PrettyPrinter._startTime)));
+      return dart.str(h) + ":" + dart.str(min) + ":" + dart.str(sec) + "." + dart.str(ms) + " (+" + dart.str(timeSinceStart) + ")";
+    }
+    stringifyMessage(message) {
+      if (core.Map.is(message) || core.Iterable.is(message)) {
+        let encoder = new convert.JsonEncoder.withIndent("  ");
+        return encoder.convert(message);
+      } else {
+        return dart.toString(message);
+      }
+    }
+    [_getLevelColor](level) {
+      if (level == null) dart.nullFailed(I[5], 217, 34, "level");
+      if (dart.test(this.colors)) {
+        return dart.nullCheck(pretty_printer.PrettyPrinter.levelColors[$_get](level));
+      } else {
+        return new ansi_color.AnsiColor.none();
+      }
+    }
+    [_getErrorColor](level) {
+      if (level == null) dart.nullFailed(I[5], 225, 34, "level");
+      if (dart.test(this.colors)) {
+        if (level == logger.Level.wtf) {
+          return dart.nullCheck(pretty_printer.PrettyPrinter.levelColors[$_get](logger.Level.wtf)).toBg();
+        } else {
+          return dart.nullCheck(pretty_printer.PrettyPrinter.levelColors[$_get](logger.Level.error)).toBg();
+        }
+      } else {
+        return new ansi_color.AnsiColor.none();
+      }
+    }
+    [_getEmoji](level) {
+      if (level == null) dart.nullFailed(I[5], 237, 26, "level");
+      if (dart.test(this.printEmojis)) {
+        return dart.nullCheck(pretty_printer.PrettyPrinter.levelEmojis[$_get](level));
+      } else {
+        return "";
+      }
+    }
+    [_formatAndPrint](level, message, time, error, stacktrace) {
+      let t0;
+      if (level == null) dart.nullFailed(I[5], 246, 11, "level");
+      if (message == null) dart.nullFailed(I[5], 247, 12, "message");
+      let buffer = T.JSArrayOfString().of([]);
+      let color = this[_getLevelColor](level);
+      buffer[$add](color.call(this[_topBorder]));
+      if (error != null) {
+        let errorColor = this[_getErrorColor](level);
+        for (let line of error[$split]("\n")) {
+          buffer[$add](dart.notNull(color.call("│" + " ")) + dart.notNull(errorColor.resetForeground) + dart.notNull(errorColor.call(line)) + dart.notNull(errorColor.resetBackground));
+        }
+        buffer[$add](color.call(this[_middleBorder]));
+      }
+      if (stacktrace != null) {
+        for (let line of stacktrace[$split]("\n")) {
+          buffer[$add](dart.str(color) + "│" + " " + dart.str(line));
+        }
+        buffer[$add](color.call(this[_middleBorder]));
+      }
+      if (time != null) {
+        t0 = buffer;
+        (() => {
+          t0[$add](color.call("│" + " " + dart.str(time)));
+          t0[$add](color.call(this[_middleBorder]));
+          return t0;
+        })();
+      }
+      let emoji = this[_getEmoji](level);
+      for (let line of message[$split]("\n")) {
+        buffer[$add](color.call("│" + " " + dart.str(emoji) + dart.str(line)));
+      }
+      buffer[$add](color.call(this[_bottomBorder]));
+      return buffer;
+    }
+  };
+  (pretty_printer.PrettyPrinter.new = function(opts) {
+    let stackTraceBeginIndex = opts && 'stackTraceBeginIndex' in opts ? opts.stackTraceBeginIndex : 0;
+    if (stackTraceBeginIndex == null) dart.nullFailed(I[5], 83, 10, "stackTraceBeginIndex");
+    let methodCount = opts && 'methodCount' in opts ? opts.methodCount : 2;
+    if (methodCount == null) dart.nullFailed(I[5], 84, 10, "methodCount");
+    let errorMethodCount = opts && 'errorMethodCount' in opts ? opts.errorMethodCount : 8;
+    if (errorMethodCount == null) dart.nullFailed(I[5], 85, 10, "errorMethodCount");
+    let lineLength = opts && 'lineLength' in opts ? opts.lineLength : 120;
+    if (lineLength == null) dart.nullFailed(I[5], 86, 10, "lineLength");
+    let colors = opts && 'colors' in opts ? opts.colors : true;
+    if (colors == null) dart.nullFailed(I[5], 87, 10, "colors");
+    let printEmojis = opts && 'printEmojis' in opts ? opts.printEmojis : true;
+    if (printEmojis == null) dart.nullFailed(I[5], 88, 10, "printEmojis");
+    let printTime = opts && 'printTime' in opts ? opts.printTime : false;
+    if (printTime == null) dart.nullFailed(I[5], 89, 10, "printTime");
+    this[_topBorder] = "";
+    this[_middleBorder] = "";
+    this[_bottomBorder] = "";
+    this[stackTraceBeginIndex$] = stackTraceBeginIndex;
+    this[methodCount$] = methodCount;
+    this[errorMethodCount$] = errorMethodCount;
+    this[lineLength$] = lineLength;
+    this[colors$] = colors;
+    this[printEmojis$] = printEmojis;
+    this[printTime$] = printTime;
+    pretty_printer.PrettyPrinter._startTime == null ? pretty_printer.PrettyPrinter._startTime = new core.DateTime.now() : null;
+    let doubleDividerLine = new core.StringBuffer.new();
+    let singleDividerLine = new core.StringBuffer.new();
+    for (let i = 0; i < dart.notNull(this.lineLength) - 1; i = i + 1) {
+      doubleDividerLine.write("─");
+      singleDividerLine.write("┄");
+    }
+    this[_topBorder] = "┌" + dart.str(doubleDividerLine);
+    this[_middleBorder] = "├" + dart.str(singleDividerLine);
+    this[_bottomBorder] = "└" + dart.str(doubleDividerLine);
+  }).prototype = pretty_printer.PrettyPrinter.prototype;
+  dart.addTypeTests(pretty_printer.PrettyPrinter);
+  dart.addTypeCaches(pretty_printer.PrettyPrinter);
+  dart.setMethodSignature(pretty_printer.PrettyPrinter, () => ({
+    __proto__: dart.getMethods(pretty_printer.PrettyPrinter.__proto__),
+    log: dart.fnType(core.List$(core.String), [logger.LogEvent]),
+    formatStackTrace: dart.fnType(dart.nullable(core.String), [dart.nullable(core.StackTrace), core.int]),
+    [_discardDeviceStacktraceLine]: dart.fnType(core.bool, [core.String]),
+    [_discardWebStacktraceLine]: dart.fnType(core.bool, [core.String]),
+    [_discardBrowserStacktraceLine]: dart.fnType(core.bool, [core.String]),
+    getTime: dart.fnType(core.String, []),
+    stringifyMessage: dart.fnType(core.String, [dart.dynamic]),
+    [_getLevelColor]: dart.fnType(ansi_color.AnsiColor, [logger.Level]),
+    [_getErrorColor]: dart.fnType(ansi_color.AnsiColor, [logger.Level]),
+    [_getEmoji]: dart.fnType(core.String, [logger.Level]),
+    [_formatAndPrint]: dart.fnType(core.List$(core.String), [logger.Level, core.String, dart.nullable(core.String), dart.nullable(core.String), dart.nullable(core.String)])
+  }));
+  dart.setLibraryUri(pretty_printer.PrettyPrinter, I[6]);
+  dart.setFieldSignature(pretty_printer.PrettyPrinter, () => ({
+    __proto__: dart.getFields(pretty_printer.PrettyPrinter.__proto__),
+    stackTraceBeginIndex: dart.finalFieldType(core.int),
+    methodCount: dart.finalFieldType(core.int),
+    errorMethodCount: dart.finalFieldType(core.int),
+    lineLength: dart.finalFieldType(core.int),
+    colors: dart.finalFieldType(core.bool),
+    printEmojis: dart.finalFieldType(core.bool),
+    printTime: dart.finalFieldType(core.bool),
+    [_topBorder]: dart.fieldType(core.String),
+    [_middleBorder]: dart.fieldType(core.String),
+    [_bottomBorder]: dart.fieldType(core.String)
+  }));
+  dart.defineLazy(pretty_printer.PrettyPrinter, {
+    /*pretty_printer.PrettyPrinter.topLeftCorner*/get topLeftCorner() {
+      return "┌";
+    },
+    /*pretty_printer.PrettyPrinter.bottomLeftCorner*/get bottomLeftCorner() {
+      return "└";
+    },
+    /*pretty_printer.PrettyPrinter.middleCorner*/get middleCorner() {
+      return "├";
+    },
+    /*pretty_printer.PrettyPrinter.verticalLine*/get verticalLine() {
+      return "│";
+    },
+    /*pretty_printer.PrettyPrinter.doubleDivider*/get doubleDivider() {
+      return "─";
+    },
+    /*pretty_printer.PrettyPrinter.singleDivider*/get singleDivider() {
+      return "┄";
+    },
+    /*pretty_printer.PrettyPrinter.levelColors*/get levelColors() {
+      return new (T.LinkedMapOfLevel$AnsiColor()).from([logger.Level.verbose, new ansi_color.AnsiColor.fg(ansi_color.AnsiColor.grey(0.5)), logger.Level.debug, new ansi_color.AnsiColor.none(), logger.Level.info, new ansi_color.AnsiColor.fg(12), logger.Level.warning, new ansi_color.AnsiColor.fg(208), logger.Level.error, new ansi_color.AnsiColor.fg(196), logger.Level.wtf, new ansi_color.AnsiColor.fg(199)]);
+    },
+    /*pretty_printer.PrettyPrinter.levelEmojis*/get levelEmojis() {
+      return new (T.LinkedMapOfLevel$String()).from([logger.Level.verbose, "", logger.Level.debug, "🐛 ", logger.Level.info, "💡 ", logger.Level.warning, "⚠️ ", logger.Level.error, "⛔ ", logger.Level.wtf, "👾 "]);
+    },
+    /*pretty_printer.PrettyPrinter._deviceStackTraceRegex*/get _deviceStackTraceRegex() {
+      return core.RegExp.new("#[0-9]+[\\s]+(.+) \\(([^\\s]+)\\)");
+    },
+    /*pretty_printer.PrettyPrinter._webStackTraceRegex*/get _webStackTraceRegex() {
+      return core.RegExp.new("^((packages|dart-sdk)\\/[^\\s]+\\/)");
+    },
+    /*pretty_printer.PrettyPrinter._browserStackTraceRegex*/get _browserStackTraceRegex() {
+      return core.RegExp.new("^(?:package:)?(dart:[^\\s]+|[^\\s]+)");
+    },
+    /*pretty_printer.PrettyPrinter._startTime*/get _startTime() {
+      return null;
+    },
+    set _startTime(_) {}
+  }, false);
+  var _name$ = dart.privateName(logger, "_name");
+  logger.Level = class Level extends core.Object {
+    toString() {
+      return this[_name$];
+    }
+  };
+  (logger.Level.new = function(index, _name) {
+    if (index == null) dart.nullFailed(I[7], 10, 6, "index");
+    if (_name == null) dart.nullFailed(I[7], 10, 6, "_name");
+    this.index = index;
+    this[_name$] = _name;
+    ;
+  }).prototype = logger.Level.prototype;
+  dart.addTypeTests(logger.Level);
+  dart.addTypeCaches(logger.Level);
+  dart.setLibraryUri(logger.Level, I[8]);
+  dart.setFieldSignature(logger.Level, () => ({
+    __proto__: dart.getFields(logger.Level.__proto__),
+    index: dart.finalFieldType(core.int),
+    [_name$]: dart.finalFieldType(core.String)
+  }));
+  dart.defineExtensionMethods(logger.Level, ['toString']);
+  logger.Level.verbose = C[1] || CT.C1;
+  logger.Level.debug = C[2] || CT.C2;
+  logger.Level.info = C[3] || CT.C3;
+  logger.Level.warning = C[4] || CT.C4;
+  logger.Level.error = C[5] || CT.C5;
+  logger.Level.wtf = C[6] || CT.C6;
+  logger.Level.nothing = C[7] || CT.C7;
+  logger.Level.values = C[8] || CT.C8;
+  var level$ = dart.privateName(logger, "LogEvent.level");
+  var message$ = dart.privateName(logger, "LogEvent.message");
+  var error$ = dart.privateName(logger, "LogEvent.error");
+  var stackTrace$ = dart.privateName(logger, "LogEvent.stackTrace");
+  logger.LogEvent = class LogEvent extends core.Object {
+    get level() {
+      return this[level$];
+    }
+    set level(value) {
+      super.level = value;
+    }
+    get message() {
+      return this[message$];
+    }
+    set message(value) {
+      super.message = value;
+    }
+    get error() {
+      return this[error$];
+    }
+    set error(value) {
+      super.error = value;
+    }
+    get stackTrace() {
+      return this[stackTrace$];
+    }
+    set stackTrace(value) {
+      super.stackTrace = value;
+    }
+    toString() {
+      return "LogEvent(" + dart.str(this.level) + ")";
+    }
+  };
+  (logger.LogEvent.new = function(level, message, error, stackTrace) {
+    if (level == null) dart.nullFailed(I[7], 26, 17, "level");
+    this[level$] = level;
+    this[message$] = message;
+    this[error$] = error;
+    this[stackTrace$] = stackTrace;
+    ;
+  }).prototype = logger.LogEvent.prototype;
+  dart.addTypeTests(logger.LogEvent);
+  dart.addTypeCaches(logger.LogEvent);
+  dart.setLibraryUri(logger.LogEvent, I[8]);
+  dart.setFieldSignature(logger.LogEvent, () => ({
+    __proto__: dart.getFields(logger.LogEvent.__proto__),
+    level: dart.finalFieldType(logger.Level),
+    message: dart.finalFieldType(dart.dynamic),
+    error: dart.finalFieldType(dart.dynamic),
+    stackTrace: dart.finalFieldType(dart.nullable(core.StackTrace))
+  }));
+  dart.defineExtensionMethods(logger.LogEvent, ['toString']);
+  var level$0 = dart.privateName(logger, "OutputEvent.level");
+  var lines$ = dart.privateName(logger, "OutputEvent.lines");
+  logger.OutputEvent = class OutputEvent extends core.Object {
+    get level() {
+      return this[level$0];
+    }
+    set level(value) {
+      super.level = value;
+    }
+    get lines() {
+      return this[lines$];
+    }
+    set lines(value) {
+      super.lines = value;
+    }
+  };
+  (logger.OutputEvent.new = function(level, lines) {
+    if (level == null) dart.nullFailed(I[7], 36, 20, "level");
+    if (lines == null) dart.nullFailed(I[7], 36, 32, "lines");
+    this[level$0] = level;
+    this[lines$] = lines;
+    ;
+  }).prototype = logger.OutputEvent.prototype;
+  dart.addTypeTests(logger.OutputEvent);
+  dart.addTypeCaches(logger.OutputEvent);
+  dart.setLibraryUri(logger.OutputEvent, I[8]);
+  dart.setFieldSignature(logger.OutputEvent, () => ({
+    __proto__: dart.getFields(logger.OutputEvent.__proto__),
+    level: dart.finalFieldType(logger.Level),
+    lines: dart.finalFieldType(core.List$(core.String))
+  }));
+  var _active = dart.privateName(logger, "_active");
+  var _filter = dart.privateName(logger, "_filter");
+  var _printer = dart.privateName(logger, "_printer");
+  var _output = dart.privateName(logger, "_output");
+  logger.Logger = class Logger extends core.Object {
+    v(message, error = null, stackTrace = null) {
+      this.log(logger.Level.verbose, message, error, stackTrace);
+    }
+    d(message, error = null, stackTrace = null) {
+      this.log(logger.Level.debug, message, error, stackTrace);
+    }
+    i(message, error = null, stackTrace = null) {
+      this.log(logger.Level.info, message, error, stackTrace);
+    }
+    w(message, error = null, stackTrace = null) {
+      this.log(logger.Level.warning, message, error, stackTrace);
+    }
+    e(message, error = null, stackTrace = null) {
+      this.log(logger.Level.error, message, error, stackTrace);
+    }
+    wtf(message, error = null, stackTrace = null) {
+      this.log(logger.Level.wtf, message, error, stackTrace);
+    }
+    log(level, message, error = null, stackTrace = null) {
+      if (level == null) dart.nullFailed(I[7], 107, 18, "level");
+      if (!dart.test(this[_active])) {
+        dart.throw(new core.ArgumentError.new("Logger has already been closed."));
+      } else if (error != null && core.StackTrace.is(error)) {
+        dart.throw(new core.ArgumentError.new("Error parameter cannot take a StackTrace!"));
+      } else if (level == logger.Level.nothing) {
+        dart.throw(new core.ArgumentError.new("Log events cannot have Level.nothing"));
+      }
+      let logEvent = new logger.LogEvent.new(level, message, error, stackTrace);
+      if (dart.test(this[_filter].shouldLog(logEvent))) {
+        let output = this[_printer].log(logEvent);
+        if (dart.test(output[$isNotEmpty])) {
+          let outputEvent = new logger.OutputEvent.new(level, output);
+          try {
+            this[_output].output(outputEvent);
+          } catch (e$) {
+            let e = dart.getThrown(e$);
+            let s = dart.stackTrace(e$);
+            if (core.Object.is(e)) {
+              core.print(e);
+              core.print(s);
+            } else
+              throw e$;
+          }
+        }
+      }
+    }
+    close() {
+      this[_active] = false;
+      this[_filter].destroy();
+      this[_printer].destroy();
+      this[_output].destroy();
+    }
+  };
+  (logger.Logger.new = function(opts) {
+    let t0, t0$, t0$0, t0$1;
+    let filter = opts && 'filter' in opts ? opts.filter : null;
+    let printer = opts && 'printer' in opts ? opts.printer : null;
+    let output = opts && 'output' in opts ? opts.output : null;
+    let level = opts && 'level' in opts ? opts.level : null;
+    this[_active] = true;
+    this[_filter] = (t0 = filter, t0 == null ? new development_filter.DevelopmentFilter.new() : t0);
+    this[_printer] = (t0$ = printer, t0$ == null ? new pretty_printer.PrettyPrinter.new() : t0$);
+    this[_output] = (t0$0 = output, t0$0 == null ? new console_output.ConsoleOutput.new() : t0$0);
+    this[_filter].init();
+    this[_filter].level = (t0$1 = level, t0$1 == null ? logger.Logger.level : t0$1);
+    this[_printer].init();
+    this[_output].init();
+  }).prototype = logger.Logger.prototype;
+  dart.addTypeTests(logger.Logger);
+  dart.addTypeCaches(logger.Logger);
+  dart.setMethodSignature(logger.Logger, () => ({
+    __proto__: dart.getMethods(logger.Logger.__proto__),
+    v: dart.fnType(dart.void, [dart.dynamic], [dart.dynamic, dart.nullable(core.StackTrace)]),
+    d: dart.fnType(dart.void, [dart.dynamic], [dart.dynamic, dart.nullable(core.StackTrace)]),
+    i: dart.fnType(dart.void, [dart.dynamic], [dart.dynamic, dart.nullable(core.StackTrace)]),
+    w: dart.fnType(dart.void, [dart.dynamic], [dart.dynamic, dart.nullable(core.StackTrace)]),
+    e: dart.fnType(dart.void, [dart.dynamic], [dart.dynamic, dart.nullable(core.StackTrace)]),
+    wtf: dart.fnType(dart.void, [dart.dynamic], [dart.dynamic, dart.nullable(core.StackTrace)]),
+    log: dart.fnType(dart.void, [logger.Level, dart.dynamic], [dart.dynamic, dart.nullable(core.StackTrace)]),
+    close: dart.fnType(dart.void, [])
+  }));
+  dart.setLibraryUri(logger.Logger, I[8]);
+  dart.setFieldSignature(logger.Logger, () => ({
+    __proto__: dart.getFields(logger.Logger.__proto__),
+    [_filter]: dart.finalFieldType(log_filter.LogFilter),
+    [_printer]: dart.finalFieldType(log_printer.LogPrinter),
+    [_output]: dart.finalFieldType(log_output.LogOutput),
+    [_active]: dart.fieldType(core.bool)
+  }));
+  dart.defineLazy(logger.Logger, {
+    /*logger.Logger.level*/get level() {
+      return logger.Level.verbose;
+    },
+    set level(_) {}
+  }, false);
+  development_filter.DevelopmentFilter = class DevelopmentFilter extends log_filter.LogFilter {
+    shouldLog(event) {
+      if (event == null) dart.nullFailed(I[9], 10, 27, "event");
+      let shouldLog = false;
+      if (!dart.test(dart.fn(() => {
+        if (dart.notNull(event.level.index) >= dart.notNull(dart.nullCheck(this.level).index)) {
+          shouldLog = true;
+        }
+        return true;
+      }, T.VoidTobool())())) dart.assertFailed(null, I[9], 12, 12, "() {\n      if (event.level.index >= level!.index) {\n        shouldLog = true;\n      }\n      return true;\n    }()");
+      return shouldLog;
+    }
+  };
+  (development_filter.DevelopmentFilter.new = function() {
+    development_filter.DevelopmentFilter.__proto__.new.call(this);
+    ;
+  }).prototype = development_filter.DevelopmentFilter.prototype;
+  dart.addTypeTests(development_filter.DevelopmentFilter);
+  dart.addTypeCaches(development_filter.DevelopmentFilter);
+  dart.setMethodSignature(development_filter.DevelopmentFilter, () => ({
+    __proto__: dart.getMethods(development_filter.DevelopmentFilter.__proto__),
+    shouldLog: dart.fnType(core.bool, [logger.LogEvent])
+  }));
+  dart.setLibraryUri(development_filter.DevelopmentFilter, I[10]);
+  dart.trackLibraries("packages/logger/src/log_filter.dart", {
+    "package:logger/src/log_filter.dart": log_filter,
+    "package:logger/src/log_output.dart": log_output,
+    "package:logger/src/outputs/console_output.dart": console_output,
+    "package:logger/src/log_printer.dart": log_printer,
+    "package:logger/src/printers/pretty_printer.dart": pretty_printer,
+    "package:logger/src/logger.dart": logger,
+    "package:logger/src/filters/development_filter.dart": development_filter
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["log_filter.dart","log_output.dart","outputs/console_output.dart","log_printer.dart","printers/pretty_printer.dart","logger.dart","filters/development_filter.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../../../../S:/packages/logger/src/log_filter.dart.lib.js"}');
+  // Exports:
+  return {
+    src__log_filter: log_filter,
+    src__log_output: log_output,
+    src__outputs__console_output: console_output,
+    src__log_printer: log_printer,
+    src__printers__pretty_printer: pretty_printer,
+    src__logger: logger,
+    src__filters__development_filter: development_filter
+  };
+}));
+
+//# sourceMappingURL=log_filter.dart.lib.js.map

@@ -1,0 +1,524 @@
+define(['dart_sdk', 'packages/get/get_core/src/get_main.dart'], (function load__packages__get__get_utils__src__get_utils__get_utils_dart(dart_sdk, packages__get__get_core__src__get_main$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const get_main = packages__get__get_core__src__get_main$46dart.get_core__src__get_main;
+  var get_utils = Object.create(dart.library);
+  var $toLowerCase = dartx.toLowerCase;
+  var $endsWith = dartx.endsWith;
+  var $replaceAll = dartx.replaceAll;
+  var $_get = dartx._get;
+  var $toString = dartx.toString;
+  var $contains = dartx.contains;
+  var $split = dartx.split;
+  var $map = dartx.map;
+  var $toList = dartx.toList;
+  var $modulo = dartx['%'];
+  var $join = dartx.join;
+  var $toUpperCase = dartx.toUpperCase;
+  var $substring = dartx.substring;
+  var $isNotEmpty = dartx.isNotEmpty;
+  var $isEmpty = dartx.isEmpty;
+  var $trim = dartx.trim;
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    StringToint: () => (T.StringToint = dart.constFn(dart.fnType(core.int, [core.String])))(),
+    StringToNint: () => (T.StringToNint = dart.constFn(dart.nullable(T.StringToint())))(),
+    intN: () => (T.intN = dart.constFn(dart.nullable(core.int)))(),
+    String__Toint: () => (T.String__Toint = dart.constFn(dart.fnType(core.int, [core.String], {onError: T.StringToNint(), radix: T.intN()}, {})))(),
+    IterableOfint: () => (T.IterableOfint = dart.constFn(core.Iterable$(core.int)))(),
+    intToint: () => (T.intToint = dart.constFn(dart.fnType(core.int, [core.int])))(),
+    StringN: () => (T.StringN = dart.constFn(dart.nullable(core.String)))(),
+    StringToStringN: () => (T.StringToStringN = dart.constFn(dart.fnType(T.StringN(), [core.String])))(),
+    dynamicToString: () => (T.dynamicToString = dart.constFn(dart.fnType(core.String, [dart.dynamic])))(),
+    boolN: () => (T.boolN = dart.constFn(dart.nullable(core.bool)))()
+  };
+  var T$Eval = Object.assign({
+    _: () => T$Eval
+  }, T);
+  var S = {
+    _: () => S
+  };
+  var S$Eval = Object.assign({
+    _: () => S$Eval
+  }, S);
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.fn(core.int.parse, T.String__Toint());
+    },
+    get C1() {
+      return C[1] = dart.fn(get_utils.GetUtils.capitalizeFirst, T.StringToStringN());
+    }
+  }, false);
+  var C = Array(2).fill(void 0);
+  var I = [
+    "file:///C:/Users/dhruv/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/get-4.1.4/lib/get_utils/src/get_utils/get_utils.dart",
+    "package:get/get_utils/src/get_utils/get_utils.dart"
+  ];
+  get_utils.GetUtils = class GetUtils extends core.Object {
+    static isNull(value) {
+      return value == null;
+    }
+    static nil(s) {
+      return s == null ? null : s;
+    }
+    static isNullOrBlank(value) {
+      if (dart.test(get_utils.GetUtils.isNull(value))) {
+        return true;
+      }
+      return get_utils._isEmpty(value);
+    }
+    static isBlank(value) {
+      return get_utils._isEmpty(value);
+    }
+    static isNum(value) {
+      if (value == null) dart.nullFailed(I[0], 90, 28, "value");
+      if (dart.test(get_utils.GetUtils.isNull(value))) {
+        return false;
+      }
+      return typeof core.num.tryParse(value) == 'number';
+    }
+    static isNumericOnly(s) {
+      if (s == null) dart.nullFailed(I[0], 100, 36, "s");
+      return get_utils.GetUtils.hasMatch(s, "^\\d+$");
+    }
+    static isAlphabetOnly(s) {
+      if (s == null) dart.nullFailed(I[0], 103, 37, "s");
+      return get_utils.GetUtils.hasMatch(s, "^[a-zA-Z]+$");
+    }
+    static hasCapitalletter(s) {
+      if (s == null) dart.nullFailed(I[0], 106, 39, "s");
+      return get_utils.GetUtils.hasMatch(s, "[A-Z]");
+    }
+    static isBool(value) {
+      if (value == null) dart.nullFailed(I[0], 109, 29, "value");
+      if (dart.test(get_utils.GetUtils.isNull(value))) {
+        return false;
+      }
+      return value === "true" || value === "false";
+    }
+    static isVideo(filePath) {
+      if (filePath == null) dart.nullFailed(I[0], 118, 30, "filePath");
+      let ext = filePath[$toLowerCase]();
+      return ext[$endsWith](".mp4") || ext[$endsWith](".avi") || ext[$endsWith](".wmv") || ext[$endsWith](".rmvb") || ext[$endsWith](".mpg") || ext[$endsWith](".mpeg") || ext[$endsWith](".3gp");
+    }
+    static isImage(filePath) {
+      if (filePath == null) dart.nullFailed(I[0], 131, 30, "filePath");
+      let ext = filePath[$toLowerCase]();
+      return ext[$endsWith](".jpg") || ext[$endsWith](".jpeg") || ext[$endsWith](".png") || ext[$endsWith](".gif") || ext[$endsWith](".bmp");
+    }
+    static isAudio(filePath) {
+      if (filePath == null) dart.nullFailed(I[0], 142, 30, "filePath");
+      let ext = filePath[$toLowerCase]();
+      return ext[$endsWith](".mp3") || ext[$endsWith](".wav") || ext[$endsWith](".wma") || ext[$endsWith](".amr") || ext[$endsWith](".ogg");
+    }
+    static isPPT(filePath) {
+      if (filePath == null) dart.nullFailed(I[0], 153, 28, "filePath");
+      let ext = filePath[$toLowerCase]();
+      return ext[$endsWith](".ppt") || ext[$endsWith](".pptx");
+    }
+    static isWord(filePath) {
+      if (filePath == null) dart.nullFailed(I[0], 160, 29, "filePath");
+      let ext = filePath[$toLowerCase]();
+      return ext[$endsWith](".doc") || ext[$endsWith](".docx");
+    }
+    static isExcel(filePath) {
+      if (filePath == null) dart.nullFailed(I[0], 167, 30, "filePath");
+      let ext = filePath[$toLowerCase]();
+      return ext[$endsWith](".xls") || ext[$endsWith](".xlsx");
+    }
+    static isAPK(filePath) {
+      if (filePath == null) dart.nullFailed(I[0], 174, 28, "filePath");
+      return filePath[$toLowerCase]()[$endsWith](".apk");
+    }
+    static isPDF(filePath) {
+      if (filePath == null) dart.nullFailed(I[0], 179, 28, "filePath");
+      return filePath[$toLowerCase]()[$endsWith](".pdf");
+    }
+    static isTxt(filePath) {
+      if (filePath == null) dart.nullFailed(I[0], 184, 28, "filePath");
+      return filePath[$toLowerCase]()[$endsWith](".txt");
+    }
+    static isChm(filePath) {
+      if (filePath == null) dart.nullFailed(I[0], 189, 28, "filePath");
+      return filePath[$toLowerCase]()[$endsWith](".chm");
+    }
+    static isVector(filePath) {
+      if (filePath == null) dart.nullFailed(I[0], 194, 31, "filePath");
+      return filePath[$toLowerCase]()[$endsWith](".svg");
+    }
+    static isHTML(filePath) {
+      if (filePath == null) dart.nullFailed(I[0], 199, 29, "filePath");
+      return filePath[$toLowerCase]()[$endsWith](".html");
+    }
+    static isUsername(s) {
+      if (s == null) dart.nullFailed(I[0], 204, 33, "s");
+      return get_utils.GetUtils.hasMatch(s, "^[a-zA-Z0-9][a-zA-Z0-9_.]+[a-zA-Z0-9]$");
+    }
+    static isURL(s) {
+      if (s == null) dart.nullFailed(I[0], 208, 28, "s");
+      return get_utils.GetUtils.hasMatch(s, "^((((H|h)(T|t)|(F|f))(T|t)(P|p)((S|s)?))\\://)?(www.|[a-zA-Z0-9].)[a-zA-Z0-9\\-\\.]+\\.[a-zA-Z]{2,6}(\\:[0-9]{1,5})*(/($|[a-zA-Z0-9\\.\\,\\;\\?\\'\\\\\\+&amp;%\\$#\\=~_\\-]+))*$");
+    }
+    static isEmail(s) {
+      if (s == null) dart.nullFailed(I[0], 212, 30, "s");
+      return get_utils.GetUtils.hasMatch(s, "^(([^<>()[\\]\\\\.,;:\\s@\\\"]+(\\.[^<>()[\\]\\\\.,;:\\s@\\\"]+)*)|(\\\".+\\\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$");
+    }
+    static isPhoneNumber(s) {
+      if (s == null) dart.nullFailed(I[0], 216, 36, "s");
+      if (s.length > 16 || s.length < 9) return false;
+      return get_utils.GetUtils.hasMatch(s, "^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\\s\\./0-9]*$");
+    }
+    static isDateTime(s) {
+      if (s == null) dart.nullFailed(I[0], 222, 33, "s");
+      return get_utils.GetUtils.hasMatch(s, "^\\d{4}-\\d{2}-\\d{2}[ T]\\d{2}:\\d{2}:\\d{2}.\\d{3}Z?$");
+    }
+    static isMD5(s) {
+      if (s == null) dart.nullFailed(I[0], 226, 28, "s");
+      return get_utils.GetUtils.hasMatch(s, "^[a-f0-9]{32}$");
+    }
+    static isSHA1(s) {
+      if (s == null) dart.nullFailed(I[0], 229, 29, "s");
+      return get_utils.GetUtils.hasMatch(s, "(([A-Fa-f0-9]{2}\\:){19}[A-Fa-f0-9]{2}|[A-Fa-f0-9]{40})");
+    }
+    static isSHA256(s) {
+      if (s == null) dart.nullFailed(I[0], 233, 31, "s");
+      return get_utils.GetUtils.hasMatch(s, "([A-Fa-f0-9]{2}\\:){31}[A-Fa-f0-9]{2}|[A-Fa-f0-9]{64}");
+    }
+    static isSSN(s) {
+      if (s == null) dart.nullFailed(I[0], 237, 28, "s");
+      return get_utils.GetUtils.hasMatch(s, "^(?!0{3}|6{3}|9[0-9]{2})[0-9]{3}-?(?!0{2})[0-9]{2}-?(?!0{4})[0-9]{4}$");
+    }
+    static isBinary(s) {
+      if (s == null) dart.nullFailed(I[0], 241, 31, "s");
+      return get_utils.GetUtils.hasMatch(s, "^[0-1]+$");
+    }
+    static isIPv4(s) {
+      if (s == null) dart.nullFailed(I[0], 244, 29, "s");
+      return get_utils.GetUtils.hasMatch(s, "^(?:(?:^|\\.)(?:2(?:5[0-5]|[0-4]\\d)|1?\\d?\\d)){4}$");
+    }
+    static isIPv6(s) {
+      if (s == null) dart.nullFailed(I[0], 248, 29, "s");
+      return get_utils.GetUtils.hasMatch(s, "^((([0-9A-Fa-f]{1,4}:){7}[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){6}:[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){5}:([0-9A-Fa-f]{1,4}:)?[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){4}:([0-9A-Fa-f]{1,4}:){0,2}[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){3}:([0-9A-Fa-f]{1,4}:){0,3}[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){2}:([0-9A-Fa-f]{1,4}:){0,4}[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){6}((\\b((25[0-5])|(1\\d{2})|(2[0-4]\\d)|(\\d{1,2}))\\b)\\.){3}(\\b((25[0-5])|(1\\d{2})|(2[0-4]\\d)|(\\d{1,2}))\\b))|(([0-9A-Fa-f]{1,4}:){0,5}:((\\b((25[0-5])|(1\\d{2})|(2[0-4]\\d)|(\\d{1,2}))\\b)\\.){3}(\\b((25[0-5])|(1\\d{2})|(2[0-4]\\d)|(\\d{1,2}))\\b))|(::([0-9A-Fa-f]{1,4}:){0,5}((\\b((25[0-5])|(1\\d{2})|(2[0-4]\\d)|(\\d{1,2}))\\b)\\.){3}(\\b((25[0-5])|(1\\d{2})|(2[0-4]\\d)|(\\d{1,2}))\\b))|([0-9A-Fa-f]{1,4}::([0-9A-Fa-f]{1,4}:){0,5}[0-9A-Fa-f]{1,4})|(::([0-9A-Fa-f]{1,4}:){0,6}[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){1,7}:))$");
+    }
+    static isHexadecimal(s) {
+      if (s == null) dart.nullFailed(I[0], 253, 36, "s");
+      return get_utils.GetUtils.hasMatch(s, "^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$");
+    }
+    static isPalindrom(string) {
+      if (string == null) dart.nullFailed(I[0], 257, 34, "string");
+      let cleanString = string[$toLowerCase]()[$replaceAll](core.RegExp.new("\\s+"), "")[$replaceAll](core.RegExp.new("[^0-9a-zA-Z]+"), "");
+      for (let i = 0; i < cleanString.length; i = i + 1) {
+        if (cleanString[$_get](i) !== cleanString[$_get](cleanString.length - i - 1)) {
+          return false;
+        }
+      }
+      return true;
+    }
+    static isOneAKind(value) {
+      if ((typeof value == 'string' || core.List.is(value)) && !dart.nullCheck(get_utils.GetUtils.isNullOrBlank(value))) {
+        let first = dart.dsend(value, '_get', [0]);
+        let len = core.num.as(dart.dload(value, 'length'));
+        for (let i = 0; i < dart.notNull(len); i = i + 1) {
+          if (!dart.equals(dart.dsend(value, '_get', [i]), first)) {
+            return false;
+          }
+        }
+        return true;
+      }
+      if (core.int.is(value)) {
+        let stringValue = dart.toString(value);
+        let first = stringValue[$_get](0);
+        for (let i = 0; i < stringValue.length; i = i + 1) {
+          if (stringValue[$_get](i) !== first) {
+            return false;
+          }
+        }
+        return true;
+      }
+      return false;
+    }
+    static isPassport(s) {
+      if (s == null) dart.nullFailed(I[0], 305, 33, "s");
+      return get_utils.GetUtils.hasMatch(s, "^(?!^0+$)[a-zA-Z0-9]{6,9}$");
+    }
+    static isCurrency(s) {
+      if (s == null) dart.nullFailed(I[0], 309, 33, "s");
+      return get_utils.GetUtils.hasMatch(s, "^(S?\\$|\\₩|Rp|\\¥|\\€|\\₹|\\₽|fr|R\\$|R)?[ ]?[-]?([0-9]{1,3}[,.]([0-9]{3}[,.])*[0-9]{3}|[0-9]+)([,.][0-9]{1,2})?( ?(USD?|AUD|NZD|CAD|CHF|GBP|CNY|EUR|JPY|IDR|MXN|NOK|KRW|TRY|INR|RUB|BRL|ZAR|SGD|MYR))?$");
+    }
+    static isLengthGreaterThan(value, maxLength) {
+      if (maxLength == null) dart.nullFailed(I[0], 313, 54, "maxLength");
+      let length = get_utils._obtainDynamicLength(value);
+      if (length == null) {
+        return false;
+      }
+      return dart.notNull(length) > dart.notNull(maxLength);
+    }
+    static isLengthGreaterOrEqual(value, maxLength) {
+      if (maxLength == null) dart.nullFailed(I[0], 324, 57, "maxLength");
+      let length = get_utils._obtainDynamicLength(value);
+      if (length == null) {
+        return false;
+      }
+      return dart.notNull(length) >= dart.notNull(maxLength);
+    }
+    static isLengthLowerThan(value, maxLength) {
+      if (maxLength == null) dart.nullFailed(I[0], 338, 52, "maxLength");
+      return get_utils.GetUtils.isLengthLessThan(value, maxLength);
+    }
+    static isLengthLessThan(value, maxLength) {
+      if (maxLength == null) dart.nullFailed(I[0], 342, 51, "maxLength");
+      let length = get_utils._obtainDynamicLength(value);
+      if (length == null) {
+        return false;
+      }
+      return dart.notNull(length) < dart.notNull(maxLength);
+    }
+    static isLengthLowerOrEqual(value, maxLength) {
+      if (maxLength == null) dart.nullFailed(I[0], 355, 55, "maxLength");
+      return get_utils.GetUtils.isLengthLessOrEqual(value, maxLength);
+    }
+    static isLengthLessOrEqual(value, maxLength) {
+      if (maxLength == null) dart.nullFailed(I[0], 359, 54, "maxLength");
+      let length = get_utils._obtainDynamicLength(value);
+      if (length == null) {
+        return false;
+      }
+      return dart.notNull(length) <= dart.notNull(maxLength);
+    }
+    static isLengthEqualTo(value, otherLength) {
+      if (otherLength == null) dart.nullFailed(I[0], 370, 50, "otherLength");
+      let length = get_utils._obtainDynamicLength(value);
+      if (length == null) {
+        return false;
+      }
+      return length == otherLength;
+    }
+    static isLengthBetween(value, minLength, maxLength) {
+      if (minLength == null) dart.nullFailed(I[0], 381, 50, "minLength");
+      if (maxLength == null) dart.nullFailed(I[0], 381, 65, "maxLength");
+      if (dart.test(get_utils.GetUtils.isNull(value))) {
+        return false;
+      }
+      return dart.test(get_utils.GetUtils.isLengthGreaterOrEqual(value, minLength)) && dart.test(get_utils.GetUtils.isLengthLessOrEqual(value, maxLength));
+    }
+    static isCaseInsensitiveContains(a, b) {
+      if (a == null) dart.nullFailed(I[0], 392, 48, "a");
+      if (b == null) dart.nullFailed(I[0], 392, 58, "b");
+      return a[$toLowerCase]()[$contains](b[$toLowerCase]());
+    }
+    static isCaseInsensitiveContainsAny(a, b) {
+      if (a == null) dart.nullFailed(I[0], 398, 51, "a");
+      if (b == null) dart.nullFailed(I[0], 398, 61, "b");
+      let lowA = a[$toLowerCase]();
+      let lowB = b[$toLowerCase]();
+      return lowA[$contains](lowB) || lowB[$contains](lowA);
+    }
+    static isLowerThan(a, b) {
+      if (a == null) dart.nullFailed(I[0], 406, 31, "a");
+      if (b == null) dart.nullFailed(I[0], 406, 38, "b");
+      return dart.notNull(a) < dart.notNull(b);
+    }
+    static isGreaterThan(a, b) {
+      if (a == null) dart.nullFailed(I[0], 409, 33, "a");
+      if (b == null) dart.nullFailed(I[0], 409, 40, "b");
+      return dart.notNull(a) > dart.notNull(b);
+    }
+    static isEqual(a, b) {
+      if (a == null) dart.nullFailed(I[0], 412, 27, "a");
+      if (b == null) dart.nullFailed(I[0], 412, 34, "b");
+      return a == b;
+    }
+    static isCnpj(cnpj) {
+      let t0, t0$;
+      if (cnpj == null) dart.nullFailed(I[0], 415, 29, "cnpj");
+      let numbers = cnpj[$replaceAll](core.RegExp.new("[^0-9]"), "");
+      if (numbers.length !== 14) {
+        return false;
+      }
+      if (dart.test(core.RegExp.new("^(\\d)\\1*$").hasMatch(numbers))) {
+        return false;
+      }
+      let digits = numbers[$split]("")[$map](core.int, C[0] || CT.C0)[$toList]();
+      let calcDv1 = 0;
+      let j = 0;
+      let iter = T.IterableOfint().generate(12, dart.fn(i => {
+        if (i == null) dart.nullFailed(I[0], 435, 47, "i");
+        return dart.notNull(i) < 4 ? 5 - dart.notNull(i) : 13 - dart.notNull(i);
+      }, T.intToint()));
+      for (let i of iter) {
+        calcDv1 = calcDv1 + dart.notNull(digits[$_get]((t0 = j, j = t0 + 1, t0))) * dart.notNull(i);
+      }
+      calcDv1 = calcDv1[$modulo](11);
+      let dv1 = calcDv1 < 2 ? 0 : 11 - calcDv1;
+      if (digits[$_get](12) !== dv1) {
+        return false;
+      }
+      let calcDv2 = 0;
+      j = 0;
+      let iter$ = T.IterableOfint().generate(13, dart.fn(i => {
+        if (i == null) dart.nullFailed(I[0], 449, 47, "i");
+        return dart.notNull(i) < 5 ? 6 - dart.notNull(i) : 14 - dart.notNull(i);
+      }, T.intToint()));
+      for (let i of iter$) {
+        calcDv2 = calcDv2 + dart.notNull(digits[$_get]((t0$ = j, j = t0$ + 1, t0$))) * dart.notNull(i);
+      }
+      calcDv2 = calcDv2[$modulo](11);
+      let dv2 = calcDv2 < 2 ? 0 : 11 - calcDv2;
+      if (digits[$_get](13) !== dv2) {
+        return false;
+      }
+      return true;
+    }
+    static isCpf(cpf) {
+      if (cpf == null) dart.nullFailed(I[0], 464, 28, "cpf");
+      let numbers = cpf[$replaceAll](core.RegExp.new("[^0-9]"), "");
+      if (numbers.length !== 11) {
+        return false;
+      }
+      if (dart.test(core.RegExp.new("^(\\d)\\1*$").hasMatch(numbers))) {
+        return false;
+      }
+      let digits = numbers[$split]("")[$map](core.int, C[0] || CT.C0)[$toList]();
+      let calcDv1 = 0;
+      let iter = T.IterableOfint().generate(9, dart.fn(i => {
+        if (i == null) dart.nullFailed(I[0], 485, 46, "i");
+        return 10 - dart.notNull(i);
+      }, T.intToint()));
+      for (let i of iter) {
+        calcDv1 = calcDv1 + dart.notNull(digits[$_get](10 - dart.notNull(i))) * dart.notNull(i);
+      }
+      calcDv1 = calcDv1[$modulo](11);
+      let dv1 = calcDv1 < 2 ? 0 : 11 - calcDv1;
+      if (digits[$_get](9) !== dv1) {
+        return false;
+      }
+      let calcDv2 = 0;
+      let iter$ = T.IterableOfint().generate(10, dart.fn(i => {
+        if (i == null) dart.nullFailed(I[0], 499, 47, "i");
+        return 11 - dart.notNull(i);
+      }, T.intToint()));
+      for (let i of iter$) {
+        calcDv2 = calcDv2 + dart.notNull(digits[$_get](11 - dart.notNull(i))) * dart.notNull(i);
+      }
+      calcDv2 = calcDv2[$modulo](11);
+      let dv2 = calcDv2 < 2 ? 0 : 11 - calcDv2;
+      if (digits[$_get](10) !== dv2) {
+        return false;
+      }
+      return true;
+    }
+    static capitalize(value) {
+      if (value == null) dart.nullFailed(I[0], 516, 36, "value");
+      if (dart.test(get_utils.GetUtils.isNull(value))) return null;
+      if (dart.nullCheck(get_utils.GetUtils.isBlank(value))) return value;
+      return value[$split](" ")[$map](T.StringN(), C[1] || CT.C1)[$join](" ");
+    }
+    static capitalizeFirst(s) {
+      if (s == null) dart.nullFailed(I[0], 524, 41, "s");
+      if (dart.test(get_utils.GetUtils.isNull(s))) return null;
+      if (dart.nullCheck(get_utils.GetUtils.isBlank(s))) return s;
+      return s[$_get](0)[$toUpperCase]() + s[$substring](1)[$toLowerCase]();
+    }
+    static removeAllWhitespace(value) {
+      if (value == null) dart.nullFailed(I[0], 532, 44, "value");
+      return value[$replaceAll](" ", "");
+    }
+    static camelCase(value) {
+      if (value == null) dart.nullFailed(I[0], 538, 35, "value");
+      if (dart.nullCheck(get_utils.GetUtils.isNullOrBlank(value))) {
+        return null;
+      }
+      let separatedWords = value[$split](core.RegExp.new("[!@#<>?\":`~;[\\]\\\\|=+)(*&^%-\\s_]+"));
+      let newString = "";
+      for (let word of separatedWords) {
+        newString = newString + (word[$_get](0)[$toUpperCase]() + word[$substring](1)[$toLowerCase]());
+      }
+      return newString[$_get](0)[$toLowerCase]() + newString[$substring](1);
+    }
+    static numericOnly(s, opts) {
+      if (s == null) dart.nullFailed(I[0], 558, 36, "s");
+      let firstWordOnly = opts && 'firstWordOnly' in opts ? opts.firstWordOnly : false;
+      if (firstWordOnly == null) dart.nullFailed(I[0], 558, 45, "firstWordOnly");
+      let numericOnlyStr = "";
+      for (let i = 0; i < s.length; i = i + 1) {
+        if (dart.test(get_utils.GetUtils.isNumericOnly(s[$_get](i)))) {
+          numericOnlyStr = numericOnlyStr + s[$_get](i);
+        }
+        if (dart.test(firstWordOnly) && numericOnlyStr[$isNotEmpty] && s[$_get](i) === " ") {
+          break;
+        }
+      }
+      return numericOnlyStr;
+    }
+    static hasMatch(value, pattern) {
+      if (pattern == null) dart.nullFailed(I[0], 573, 46, "pattern");
+      return value == null ? false : core.RegExp.new(pattern).hasMatch(value);
+    }
+    static createPath(path, segments = null) {
+      if (path == null) dart.nullFailed(I[0], 577, 35, "path");
+      if (segments == null || dart.test(segments[$isEmpty])) {
+        return path;
+      }
+      let list = segments[$map](core.String, dart.fn(e => "/" + dart.str(e), T.dynamicToString()));
+      return dart.notNull(path) + dart.notNull(list[$join]());
+    }
+    static printFunction(prefix, value, info, opts) {
+      let t2, t1, t0;
+      if (prefix == null) dart.nullFailed(I[0], 586, 12, "prefix");
+      if (info == null) dart.nullFailed(I[0], 588, 12, "info");
+      let isError = opts && 'isError' in opts ? opts.isError : false;
+      if (isError == null) dart.nullFailed(I[0], 589, 10, "isError");
+      t0 = get_main.Get;
+      t1 = (dart.str(prefix) + " " + dart.str(value) + " " + dart.str(info))[$trim]();
+      t2 = isError;
+      t0.log(t1, {isError: t2});
+    }
+  };
+  (get_utils.GetUtils.__ = function() {
+    ;
+  }).prototype = get_utils.GetUtils.prototype;
+  dart.addTypeTests(get_utils.GetUtils);
+  dart.addTypeCaches(get_utils.GetUtils);
+  dart.setLibraryUri(get_utils.GetUtils, I[1]);
+  get_utils._isEmpty = function _isEmpty(value) {
+    if (typeof value == 'string') {
+      return dart.toString(value)[$trim]()[$isEmpty];
+    }
+    if (core.Iterable.is(value) || core.Map.is(value)) {
+      return T.boolN().as(dart.dload(value, 'isEmpty'));
+    }
+    return false;
+  };
+  get_utils._hasLength = function _hasLength(value) {
+    return core.Iterable.is(value) || typeof value == 'string' || core.Map.is(value);
+  };
+  get_utils._obtainDynamicLength = function _obtainDynamicLength(value) {
+    if (value == null) {
+      return null;
+    }
+    if (dart.test(get_utils._hasLength(value))) {
+      return T.intN().as(dart.dload(value, 'length'));
+    }
+    if (core.int.is(value)) {
+      return dart.toString(value).length;
+    }
+    if (typeof value == 'number') {
+      return dart.toString(value)[$replaceAll](".", "").length;
+    }
+    return null;
+  };
+  dart.trackLibraries("packages/get/get_utils/src/get_utils/get_utils.dart", {
+    "package:get/get_utils/src/get_utils/get_utils.dart": get_utils
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["get_utils.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../../../../../../S:/packages/get/get_utils/src/get_utils/get_utils.dart.lib.js"}');
+  // Exports:
+  return {
+    get_utils__src__get_utils__get_utils: get_utils
+  };
+}));
+
+//# sourceMappingURL=get_utils.dart.lib.js.map
