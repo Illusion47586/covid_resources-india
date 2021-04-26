@@ -1,4 +1,3 @@
-import 'city_search_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -7,6 +6,7 @@ import '../../core/theme/typography.dart';
 import '../../data/states.dart';
 import '../controllers/state_search_controller.dart';
 import '../widgets/forms/search_bar.dart';
+import 'city_search_screen.dart';
 
 class StateSearchScreen extends StatelessWidget {
   static const String id = '/state-search-screen';

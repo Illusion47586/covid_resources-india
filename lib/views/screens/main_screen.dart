@@ -1,13 +1,13 @@
-import '../../core/models/data_model.dart';
-import '../../core/theme/colors.dart';
-import '../../core/theme/custom_icons_icons.dart';
-import 'settings_screen.dart';
 import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../core/models/data_model.dart';
+import '../../core/theme/colors.dart';
+import '../../core/theme/custom_icons_icons.dart';
 import '../controllers/main_controller.dart';
 import 'info_data_screen.dart';
+import 'settings_screen.dart';
 
 class MainScreen extends StatelessWidget {
   static const String id = '/main-screen';

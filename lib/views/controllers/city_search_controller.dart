@@ -1,10 +1,9 @@
 import 'package:connectivity/connectivity.dart';
-import 'package:covid_resources/main.dart';
 import 'package:get/get.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
 import '../../core/services/data_service.dart';
-import '../screens/main_screen.dart';
+import '../../main.dart';
 import 'state_search_controller.dart';
 
 class CitySearchController extends GetxController {
