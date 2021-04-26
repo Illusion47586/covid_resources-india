@@ -1,0 +1,264 @@
+define(['dart_sdk', 'packages/get/get_instance/src/get_instance.dart'], (function load__packages__get__get_instance__src__extension_instance_dart(dart_sdk, packages__get__get_instance__src__get_instance$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const async = dart_sdk.async;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const get_instance = packages__get__get_instance__src__get_instance$46dart.get_instance__src__get_instance;
+  var extension_instance = Object.create(dart.library);
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    StringN: () => (T.StringN = dart.constFn(dart.nullable(core.String)))(),
+    ObjectN: () => (T.ObjectN = dart.constFn(dart.nullable(core.Object)))(),
+    Fn__Tovoid: () => (T.Fn__Tovoid = dart.constFn(dart.gFnType(S => {
+      var VoidToS = () => (VoidToS = dart.constFn(dart.fnType(S, [])))();
+      return [dart.void, [VoidToS()], {fenix: core.bool, tag: T.StringN()}, {}];
+    }, S => {
+      var VoidToS = () => (VoidToS = dart.constFn(dart.fnType(S, [])))();
+      return [T.ObjectN()];
+    })))(),
+    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
+    Fn__ToFutureOfS: () => (T.Fn__ToFutureOfS = dart.constFn(dart.gFnType(S => {
+      var FutureOfS = () => (FutureOfS = dart.constFn(async.Future$(S)))();
+      var VoidToFutureOfS = () => (VoidToFutureOfS = dart.constFn(dart.fnType(FutureOfS(), [])))();
+      return [FutureOfS(), [VoidToFutureOfS()], {permanent: core.bool, tag: T.StringN()}, {}];
+    }, S => {
+      var FutureOfS = () => (FutureOfS = dart.constFn(async.Future$(S)))();
+      var VoidToFutureOfS = () => (VoidToFutureOfS = dart.constFn(dart.fnType(FutureOfS(), [])))();
+      return [T.ObjectN()];
+    })))(),
+    Fn__Tovoid$1: () => (T.Fn__Tovoid$1 = dart.constFn(dart.gFnType(S => {
+      var VoidToS = () => (VoidToS = dart.constFn(dart.fnType(S, [])))();
+      return [dart.void, [VoidToS()], {permanent: core.bool, tag: T.StringN()}, {}];
+    }, S => {
+      var VoidToS = () => (VoidToS = dart.constFn(dart.fnType(S, [])))();
+      return [T.ObjectN()];
+    })))(),
+    __ToS: () => (T.__ToS = dart.constFn(dart.gFnType(S => [S, [], {tag: T.StringN()}, {}], S => [T.ObjectN()])))(),
+    S__ToS: () => (T.S__ToS = dart.constFn(dart.gFnType(S => {
+      var VoidToS = () => (VoidToS = dart.constFn(dart.fnType(S, [])))();
+      var VoidToNS = () => (VoidToNS = dart.constFn(dart.nullable(VoidToS())))();
+      return [S, [S], {builder: VoidToNS(), permanent: core.bool, tag: T.StringN()}, {}];
+    }, S => {
+      var VoidToS = () => (VoidToS = dart.constFn(dart.fnType(S, [])))();
+      var VoidToNS = () => (VoidToNS = dart.constFn(dart.nullable(VoidToS())))();
+      return [T.ObjectN()];
+    })))(),
+    __Tobool: () => (T.__Tobool = dart.constFn(dart.fnType(core.bool, [], {clearFactory: core.bool, clearRouteBindings: core.bool}, {})))(),
+    FutureOfbool: () => (T.FutureOfbool = dart.constFn(async.Future$(core.bool)))(),
+    __ToFutureOfbool: () => (T.__ToFutureOfbool = dart.constFn(dart.gFnType(S => [T.FutureOfbool(), [], {force: core.bool, tag: T.StringN()}, {}], S => [T.ObjectN()])))(),
+    __Tovoid: () => (T.__Tovoid = dart.constFn(dart.fnType(dart.void, [], {force: core.bool}, {})))(),
+    __Tovoid$1: () => (T.__Tovoid$1 = dart.constFn(dart.gFnType(S => [dart.void, [], {force: core.bool, key: T.StringN(), tag: T.StringN()}, {}], S => [T.ObjectN()])))(),
+    __Tobool$1: () => (T.__Tobool$1 = dart.constFn(dart.gFnType(S => [core.bool, [], {tag: T.StringN()}, {}], S => [T.ObjectN()])))()
+  };
+  var T$Eval = Object.assign({
+    _: () => T$Eval
+  }, T);
+  var S = {
+    _: () => S
+  };
+  var S$Eval = Object.assign({
+    _: () => S$Eval
+  }, S);
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  var C = [];
+  var I = ["file:///C:/Users/dhruv/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/get-4.1.4/lib/get_instance/src/extension_instance.dart"];
+  extension_instance['Inst|lazyPut'] = function Inst$124lazyPut(S, $this, builder, opts) {
+    if ($this == null) dart.nullFailed(I[0], 30, 8, "#this");
+    if (builder == null) dart.nullFailed(I[0], 30, 46, "builder");
+    let tag = opts && 'tag' in opts ? opts.tag : null;
+    let fenix = opts && 'fenix' in opts ? opts.fenix : false;
+    if (fenix == null) dart.nullFailed(I[0], 31, 26, "fenix");
+    get_instance.GetInstance.new().lazyPut(S, builder, {tag: tag, fenix: fenix});
+  };
+  extension_instance['Inst|get#lazyPut'] = function Inst$124get$35lazyPut($this) {
+    if ($this == null) dart.nullFailed(I[0], 30, 8, "#this");
+    return dart.fn((S, builder, opts) => {
+      if (builder == null) dart.nullFailed(I[0], 30, 46, "builder");
+      let tag = opts && 'tag' in opts ? opts.tag : null;
+      let fenix = opts && 'fenix' in opts ? opts.fenix : false;
+      if (fenix == null) dart.nullFailed(I[0], 31, 26, "fenix");
+      return extension_instance['Inst|lazyPut'](S, $this, builder, {tag: tag, fenix: fenix});
+    }, T.Fn__Tovoid());
+  };
+  extension_instance['Inst|printInstanceStack'] = function Inst$124printInstanceStack($this) {
+    if ($this == null) dart.nullFailed(I[0], 35, 8, "#this");
+    get_instance.GetInstance.new().printInstanceStack();
+  };
+  extension_instance['Inst|get#printInstanceStack'] = function Inst$124get$35printInstanceStack($this) {
+    if ($this == null) dart.nullFailed(I[0], 35, 8, "#this");
+    return dart.fn(() => extension_instance['Inst|printInstanceStack']($this), T.VoidTovoid());
+  };
+  extension_instance['Inst|putAsync'] = function Inst$124putAsync(S, $this, builder, opts) {
+    if ($this == null) dart.nullFailed(I[0], 42, 13, "#this");
+    if (builder == null) dart.nullFailed(I[0], 42, 57, "builder");
+    let tag = opts && 'tag' in opts ? opts.tag : null;
+    let permanent = opts && 'permanent' in opts ? opts.permanent : false;
+    if (permanent == null) dart.nullFailed(I[0], 43, 30, "permanent");
+    return async.async(S, function* Inst$124putAsync() {
+      return get_instance.GetInstance.new().putAsync(S, builder, {tag: tag, permanent: permanent});
+    });
+  };
+  extension_instance['Inst|get#putAsync'] = function Inst$124get$35putAsync($this) {
+    if ($this == null) dart.nullFailed(I[0], 42, 13, "#this");
+    return dart.fn((S, builder, opts) => {
+      if (builder == null) dart.nullFailed(I[0], 42, 57, "builder");
+      let tag = opts && 'tag' in opts ? opts.tag : null;
+      let permanent = opts && 'permanent' in opts ? opts.permanent : false;
+      if (permanent == null) dart.nullFailed(I[0], 43, 30, "permanent");
+      return extension_instance['Inst|putAsync'](S, $this, builder, {tag: tag, permanent: permanent});
+    }, T.Fn__ToFutureOfS());
+  };
+  extension_instance['Inst|create'] = function Inst$124create(S, $this, builder, opts) {
+    if ($this == null) dart.nullFailed(I[0], 63, 8, "#this");
+    if (builder == null) dart.nullFailed(I[0], 63, 45, "builder");
+    let tag = opts && 'tag' in opts ? opts.tag : null;
+    let permanent = opts && 'permanent' in opts ? opts.permanent : true;
+    if (permanent == null) dart.nullFailed(I[0], 64, 30, "permanent");
+    return get_instance.GetInstance.new().create(S, builder, {tag: tag, permanent: permanent});
+  };
+  extension_instance['Inst|get#create'] = function Inst$124get$35create($this) {
+    if ($this == null) dart.nullFailed(I[0], 63, 8, "#this");
+    return dart.fn((S, builder, opts) => {
+      if (builder == null) dart.nullFailed(I[0], 63, 45, "builder");
+      let tag = opts && 'tag' in opts ? opts.tag : null;
+      let permanent = opts && 'permanent' in opts ? opts.permanent : true;
+      if (permanent == null) dart.nullFailed(I[0], 64, 30, "permanent");
+      return extension_instance['Inst|create'](S, $this, builder, {tag: tag, permanent: permanent});
+    }, T.Fn__Tovoid$1());
+  };
+  extension_instance['Inst|find'] = function Inst$124find(S, $this, opts) {
+    if ($this == null) dart.nullFailed(I[0], 70, 5, "#this");
+    let tag = opts && 'tag' in opts ? opts.tag : null;
+    return get_instance.GetInstance.new().find(S, {tag: tag});
+  };
+  extension_instance['Inst|get#find'] = function Inst$124get$35find($this) {
+    if ($this == null) dart.nullFailed(I[0], 70, 5, "#this");
+    return dart.fn((S, opts) => {
+      let tag = opts && 'tag' in opts ? opts.tag : null;
+      return extension_instance['Inst|find'](S, $this, {tag: tag});
+    }, T.__ToS());
+  };
+  extension_instance['Inst|put'] = function Inst$124put(S, $this, dependency, opts) {
+    if ($this == null) dart.nullFailed(I[0], 86, 5, "#this");
+    let tag = opts && 'tag' in opts ? opts.tag : null;
+    let permanent = opts && 'permanent' in opts ? opts.permanent : false;
+    if (permanent == null) dart.nullFailed(I[0], 88, 16, "permanent");
+    let builder = opts && 'builder' in opts ? opts.builder : null;
+    return get_instance.GetInstance.new().put(S, dependency, {tag: tag, permanent: permanent});
+  };
+  extension_instance['Inst|get#put'] = function Inst$124get$35put($this) {
+    if ($this == null) dart.nullFailed(I[0], 86, 5, "#this");
+    return dart.fn((S, dependency, opts) => {
+      let tag = opts && 'tag' in opts ? opts.tag : null;
+      let permanent = opts && 'permanent' in opts ? opts.permanent : false;
+      if (permanent == null) dart.nullFailed(I[0], 88, 16, "permanent");
+      let builder = opts && 'builder' in opts ? opts.builder : null;
+      return extension_instance['Inst|put'](S, $this, dependency, {tag: tag, permanent: permanent, builder: builder});
+    }, T.S__ToS());
+  };
+  extension_instance['Inst|reset'] = function Inst$124reset($this, opts) {
+    if ($this == null) dart.nullFailed(I[0], 98, 8, "#this");
+    let clearFactory = opts && 'clearFactory' in opts ? opts.clearFactory : true;
+    if (clearFactory == null) dart.nullFailed(I[0], 98, 20, "clearFactory");
+    let clearRouteBindings = opts && 'clearRouteBindings' in opts ? opts.clearRouteBindings : true;
+    if (clearRouteBindings == null) dart.nullFailed(I[0], 98, 46, "clearRouteBindings");
+    return get_instance.GetInstance.new().reset({clearFactory: clearFactory, clearRouteBindings: clearRouteBindings});
+  };
+  extension_instance['Inst|get#reset'] = function Inst$124get$35reset($this) {
+    if ($this == null) dart.nullFailed(I[0], 98, 8, "#this");
+    return dart.fn(opts => {
+      let clearFactory = opts && 'clearFactory' in opts ? opts.clearFactory : true;
+      if (clearFactory == null) dart.nullFailed(I[0], 98, 20, "clearFactory");
+      let clearRouteBindings = opts && 'clearRouteBindings' in opts ? opts.clearRouteBindings : true;
+      if (clearRouteBindings == null) dart.nullFailed(I[0], 98, 46, "clearRouteBindings");
+      return extension_instance['Inst|reset']($this, {clearFactory: clearFactory, clearRouteBindings: clearRouteBindings});
+    }, T.__Tobool());
+  };
+  extension_instance['Inst|delete'] = function Inst$124delete(S, $this, opts) {
+    if ($this == null) dart.nullFailed(I[0], 107, 16, "#this");
+    let tag = opts && 'tag' in opts ? opts.tag : null;
+    let force = opts && 'force' in opts ? opts.force : false;
+    if (force == null) dart.nullFailed(I[0], 107, 45, "force");
+    return async.async(core.bool, function* Inst$124delete() {
+      return get_instance.GetInstance.new().delete(S, {tag: tag, force: force});
+    });
+  };
+  extension_instance['Inst|get#delete'] = function Inst$124get$35delete($this) {
+    if ($this == null) dart.nullFailed(I[0], 107, 16, "#this");
+    return dart.fn((S, opts) => {
+      let tag = opts && 'tag' in opts ? opts.tag : null;
+      let force = opts && 'force' in opts ? opts.force : false;
+      if (force == null) dart.nullFailed(I[0], 107, 45, "force");
+      return extension_instance['Inst|delete'](S, $this, {tag: tag, force: force});
+    }, T.__ToFutureOfbool());
+  };
+  extension_instance['Inst|reloadAll'] = function Inst$124reloadAll($this, opts) {
+    if ($this == null) dart.nullFailed(I[0], 110, 8, "#this");
+    let force = opts && 'force' in opts ? opts.force : false;
+    if (force == null) dart.nullFailed(I[0], 110, 24, "force");
+    return get_instance.GetInstance.new().reloadAll({force: force});
+  };
+  extension_instance['Inst|get#reloadAll'] = function Inst$124get$35reloadAll($this) {
+    if ($this == null) dart.nullFailed(I[0], 110, 8, "#this");
+    return dart.fn(opts => {
+      let force = opts && 'force' in opts ? opts.force : false;
+      if (force == null) dart.nullFailed(I[0], 110, 24, "force");
+      return extension_instance['Inst|reloadAll']($this, {force: force});
+    }, T.__Tovoid());
+  };
+  extension_instance['Inst|reload'] = function Inst$124reload(S, $this, opts) {
+    if ($this == null) dart.nullFailed(I[0], 112, 8, "#this");
+    let tag = opts && 'tag' in opts ? opts.tag : null;
+    let key = opts && 'key' in opts ? opts.key : null;
+    let force = opts && 'force' in opts ? opts.force : false;
+    if (force == null) dart.nullFailed(I[0], 112, 50, "force");
+    return get_instance.GetInstance.new().reload(S, {tag: tag, key: key, force: force});
+  };
+  extension_instance['Inst|get#reload'] = function Inst$124get$35reload($this) {
+    if ($this == null) dart.nullFailed(I[0], 112, 8, "#this");
+    return dart.fn((S, opts) => {
+      let tag = opts && 'tag' in opts ? opts.tag : null;
+      let key = opts && 'key' in opts ? opts.key : null;
+      let force = opts && 'force' in opts ? opts.force : false;
+      if (force == null) dart.nullFailed(I[0], 112, 50, "force");
+      return extension_instance['Inst|reload'](S, $this, {tag: tag, key: key, force: force});
+    }, T.__Tovoid$1());
+  };
+  extension_instance['Inst|isRegistered'] = function Inst$124isRegistered(S, $this, opts) {
+    if ($this == null) dart.nullFailed(I[0], 117, 8, "#this");
+    let tag = opts && 'tag' in opts ? opts.tag : null;
+    return get_instance.GetInstance.new().isRegistered(S, {tag: tag});
+  };
+  extension_instance['Inst|get#isRegistered'] = function Inst$124get$35isRegistered($this) {
+    if ($this == null) dart.nullFailed(I[0], 117, 8, "#this");
+    return dart.fn((S, opts) => {
+      let tag = opts && 'tag' in opts ? opts.tag : null;
+      return extension_instance['Inst|isRegistered'](S, $this, {tag: tag});
+    }, T.__Tobool$1());
+  };
+  extension_instance['Inst|isPrepared'] = function Inst$124isPrepared(S, $this, opts) {
+    if ($this == null) dart.nullFailed(I[0], 123, 8, "#this");
+    let tag = opts && 'tag' in opts ? opts.tag : null;
+    return get_instance.GetInstance.new().isPrepared(S, {tag: tag});
+  };
+  extension_instance['Inst|get#isPrepared'] = function Inst$124get$35isPrepared($this) {
+    if ($this == null) dart.nullFailed(I[0], 123, 8, "#this");
+    return dart.fn((S, opts) => {
+      let tag = opts && 'tag' in opts ? opts.tag : null;
+      return extension_instance['Inst|isPrepared'](S, $this, {tag: tag});
+    }, T.__Tobool$1());
+  };
+  dart.trackLibraries("packages/get/get_instance/src/extension_instance.dart", {
+    "package:get/get_instance/src/extension_instance.dart": extension_instance
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["extension_instance.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;0EA6B6C;;;QAC9B;QAAU;;AACoC,IAAzD,AAAc,0CAAW,OAAO,QAAO,GAAG,SAAS,KAAK;EAC1D;;;AAHK;UAAsC;UAC9B;UAAU;;AADlB,iEAAO,QAAP,GAAG,SAAH,KAAK;;EAGV;;;AAGoC,IAAlC,AAAc;EAChB;;;AAFK;EAEL;4EAKsD;;;QACrC;QAAU;;AADN;AAEjB,YAAA,AAAc,4CAAY,OAAO,QAAO,GAAG,aAAa,SAAS;IAAC;;;;AAF5D;UAA4C;UACrC;UAAU;;AADjB,kEAAO,QAAP,GAAG,aAAH,SAAS;;EAEmD;wEAmB5B;;;QACzB;QAAU;;AACvB,UAAA,AAAc,0CAAU,OAAO,QAAO,GAAG,aAAa,SAAS;EAAC;;;AAF/D;UAAqC;UACzB;UAAU;;AADtB,gEAAO,QAAP,GAAG,aAAH,SAAS;;EAEsD;;;QAKjD;AAAS,UAAA,AAAc,8CAAa,GAAG;EAAC;;;AAAzD;UAAiB;AAAjB,gEAAG;;EAAsD;kEAgBhD;;QACM;QACJ;;QACuB;AAChC,UAAA,AAAc,uCAAO,UAAU,QAAO,GAAG,aAAa,SAAS;EAAC;;;AAJlE,uBAAS;UACM;UACJ;;UACuB;AAHlC,gEAAU,QAAV,GAAG,aAAH,SAAS,WAAT,OAAO;;EAI2D;;;QAQnD;;QAA0B;;AACvC,UAAA,AAAc,qDACI,YAAY,sBAAsB,kBAAkB;EAAC;;;AAFtE;UAAY;;UAA0B;;AAAtC,gFAAY,sBAAZ,kBAAkB;;EAEoD;;;QAO3C;QAAU;;AAApB;AAClB,YAAA,AAAc,gDAAe,GAAG,SAAS,KAAK;IAAC;;;;AADtC;UAAmB;UAAU;;AAA7B,kEAAG,SAAH,KAAK;;EACiC;;;QAE9B;;AAAmB,UAAA,AAAc,kDAAiB,KAAK;EAAC;;;AAAxE;UAAgB;;AAAhB,sEAAK;;EAAmE;;;QAErD;QAAa;QAAU;;AAC3C,UAAA,AAAc,gDAAe,GAAG,OAAO,GAAG,SAAS,KAAK;EAAC;;;AADxD;UAAmB;UAAa;UAAU;;AAA1C,kEAAG,OAAH,GAAG,SAAH,KAAK;;EACmD;;;QAI/B;AAC1B,UAAA,AAAc,sDAAqB,GAAG;EAAC;;;AADtC;UAAyB;AAAzB,wEAAG;;EACmC;;;QAKf;AAAS,UAAA,AAAc,oDAAmB,GAAG;EAAC;;;AAArE;UAAuB;AAAvB,sEAAG;;EAAkE","file":"../../../../../../../../../../../../../S:/packages/get/get_instance/src/extension_instance.dart.lib.js"}');
+  // Exports:
+  return {
+    get_instance__src__extension_instance: extension_instance
+  };
+}));
+
+//# sourceMappingURL=extension_instance.dart.lib.js.map
