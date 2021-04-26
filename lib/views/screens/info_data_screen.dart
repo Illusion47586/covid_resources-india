@@ -1,15 +1,9 @@
-<<<<<<< HEAD
-import '../../core/theme/custom_icons_icons.dart';
-import '../widgets/buttons/icon_button.dart';
-import '../widgets/buttons/text_button.dart';
-=======
 import 'package:clipboard/clipboard.dart';
 import 'package:enum_to_string/enum_to_string.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
->>>>>>> dev
 import 'package:share/share.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -160,11 +154,7 @@ class InfoDataScreen extends StatelessWidget {
   Container buildItem(AsyncSnapshot<List<DataModel>> snapshot, int index) {
     return Container(
       padding: const EdgeInsets.all(20),
-<<<<<<< HEAD
-      width: double.infinity,
-=======
       constraints: const BoxConstraints(maxWidth: 600),
->>>>>>> dev
       decoration: BoxDecoration(
         color: Colors.white,
         boxShadow: [
@@ -234,11 +224,7 @@ class InfoDataScreen extends StatelessWidget {
                               color: Colors.grey,
                             ),
                           ),
-<<<<<<< HEAD
-                          const SizedBox(width: 20),
-=======
                           const SizedBox(height: 15),
->>>>>>> dev
                           Text(
                             snapshot.data[index].location,
                             style: kTextTitle2Style.copyWith(

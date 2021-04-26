@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-import 'city_search_screen.dart';
-=======
->>>>>>> dev
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
