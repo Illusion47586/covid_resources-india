@@ -27,13 +27,16 @@ class SettingsScreen extends StatelessWidget {
           CustomTextButton.red(
             text: 'Share this app',
             icon: Icons.share,
-            function: () => Share.share(''),
+            function: () => Share.share(
+              'Share this app! https://github.com/Illusion47586/covid_resources-india',
+            ),
           ),
           AppSpacing.bigVerticalSpacer,
           CustomTextButton.green(
             text: 'About us',
             icon: Icons.info_outline,
-            function: () => launch(''),
+            function: () => launch(
+                'https://github.com/Illusion47586/covid_resources-india,'),
           ),
         ],
       ),
