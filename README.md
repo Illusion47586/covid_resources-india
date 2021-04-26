@@ -1,5 +1,6 @@
 # covid_resources
 
+<<<<<<< HEAD
 A simple app that gives you all required covid related resources in one place, contributed and maintained by public, for public.
 
 It contains details segregated by cities and basically four categories:
@@ -17,3 +18,7 @@ Contribution is required to keep this thing running and data to be updated, whet
 
 For developers: before making a new issue, consider solving previous issues and if you are solving a new one, first make that issue.
 Please check the `dev` branch for more info.
+=======
+- Framework: `Flutter`
+- Architecture: `Get` (bit different from provider, please see documentation on pub.dev)
+>>>>>>> dev

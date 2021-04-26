@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 import 'city_search_screen.dart';
+=======
+>>>>>>> dev
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -7,6 +10,7 @@ import '../../core/theme/typography.dart';
 import '../../data/states.dart';
 import '../controllers/state_search_controller.dart';
 import '../widgets/forms/search_bar.dart';
+import 'city_search_screen.dart';
 
 class StateSearchScreen extends StatelessWidget {
   static const String id = '/state-search-screen';
@@ -34,10 +38,10 @@ class StateSearchScreen extends StatelessWidget {
                           results[index],
                           style: kTextTitle2Style.copyWith(fontSize: 18),
                         ),
-                        onTap: () {
+                        onTap: () async {
                           print(stateList.indexOf(results[index]));
-                          controller.updateIndex =
-                              stateList.indexOf(results[index]);
+                          await controller
+                              .updateIndex(stateList.indexOf(results[index]));
                           Get.toNamed(CitySearchScreen.id);
                         },
                       ),
@@ -52,9 +56,10 @@ class StateSearchScreen extends StatelessWidget {
                                 e,
                                 style: kTextTitle2Style.copyWith(fontSize: 18),
                               ),
-                              onTap: () {
+                              onTap: () async {
                                 print(stateList.indexOf(e));
-                                controller.updateIndex = stateList.indexOf(e);
+                                await controller
+                                    .updateIndex(stateList.indexOf(e));
                                 Get.toNamed(CitySearchScreen.id);
                               },
                             ),

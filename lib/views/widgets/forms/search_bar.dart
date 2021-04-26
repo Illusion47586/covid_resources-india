@@ -70,7 +70,7 @@ class _SearchBarState extends State<SearchBar> {
       progress: progress,
       backgroundColor: Colors.grey.shade200,
       clearQueryOnClose: true,
-      closeOnBackdropTap: true,
+      closeOnBackdropTap: false,
       shadowColor: Colors.black12,
       backdropColor: Colors.transparent,
       textInputType: TextInputType.streetAddress,

@@ -155,7 +155,7 @@ class CustomTextButton extends StatelessWidget {
       child: ConstrainedBox(
         constraints: const BoxConstraints(
           maxHeight: 60,
-          maxWidth: double.infinity,
+          maxWidth: 600,
         ),
         child: Builder(
           builder: (context) {
