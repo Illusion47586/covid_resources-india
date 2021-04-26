@@ -1,4 +1,0 @@
-io/flutter/plugins/GeneratedPluginRegistrant.java
- io.flutter.plugins.GeneratedPluginRegistrant
-com/example/covid_resources/BuildConfig.java
- com.example.covid_resources.BuildConfig

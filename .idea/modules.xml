@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="ProjectModuleManager">
-    <modules>
-      <module fileurl="file://$PROJECT_DIR$/covid_resources.iml" filepath="$PROJECT_DIR$/covid_resources.iml" />
-      <module fileurl="file://$PROJECT_DIR$/android/covid_resources_android.iml" filepath="$PROJECT_DIR$/android/covid_resources_android.iml" />
-    </modules>
-  </component>
-</project>
