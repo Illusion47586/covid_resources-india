@@ -125,6 +125,9 @@ class InfoDataScreen extends StatelessWidget {
                               CustomTextButton.issue(
                                 issue: issue,
                                 text: 'Willing to contribute?',
+                                function: () => launch(
+                                  'https://forms.gle/xtdjM3E1dHLKpniA8',
+                                ),
                               )
                             ],
                           ),
