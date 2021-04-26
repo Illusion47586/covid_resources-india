@@ -1,5 +1,6 @@
-import 'colors.dart';
 import 'package:flutter/material.dart';
+
+import 'colors.dart';
 
 class ThemeHandler {
   static const String fontFamily = 'manrope';

@@ -1,8 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:flutter/material.dart';
+
 import '../../../core/models/data_model.dart';
 import '../../../core/theme/colors.dart';
 import '../../../core/theme/typography.dart';
-import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class CustomTextButton extends StatelessWidget {

@@ -1,11 +1,11 @@
 import 'package:connectivity/connectivity.dart';
-import '../../data/cities.dart';
-import '../../data/states.dart';
-import '../widgets/forms/search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
 import '../../core/theme/spacing.dart';
+import '../../data/cities.dart';
+import '../../data/states.dart';
+import '../widgets/forms/search_bar.dart';
 
 class TestScreen extends StatefulWidget {
   static const String id = '/test-screen';

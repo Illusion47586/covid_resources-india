@@ -4,8 +4,8 @@ import 'package:logger/logger.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'core/router.dart';
-import 'core/theme/theme.dart';
 import 'core/services/initial_binding.dart';
+import 'core/theme/theme.dart';
 
 class MyBehavior extends ScrollBehavior {
   @override

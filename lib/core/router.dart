@@ -1,10 +1,8 @@
-import 'package:flutter/foundation.dart';
-
-import '../main.dart';
-import '../views/screens/main_screen.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 
+import '../main.dart';
 import '../views/screens/city_search_screen.dart';
+import '../views/screens/main_screen.dart';
 import '../views/screens/state_search_screen.dart';
 import '../views/screens/test_screen.dart';
 
