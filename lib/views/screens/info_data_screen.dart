@@ -1,3 +1,7 @@
+import 'package:clipboard/clipboard.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+
 import '../../core/theme/custom_icons_icons.dart';
 import '../widgets/buttons/icon_button.dart';
 import '../widgets/buttons/text_button.dart';
@@ -30,9 +34,22 @@ class InfoDataScreen extends StatelessWidget {
               padding: EdgeInsets.symmetric(
                 horizontal: AppSpacing.screenPadding.left,
               ),
-              child: Text(
-                EnumToString.convertToString(issue) + ' info',
-                style: kTextHeaderStyle,
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    EnumToString.convertToString(issue) + ' info',
+                    style: kTextHeaderStyle,
+                  ),
+                  Flexible(
+                    child: Text(
+                      controller.dataService.getCurrentLocation(),
+                      style: kTextTitle2Style.copyWith(fontSize: 16),
+                      textAlign: TextAlign.right,
+                    ),
+                  )
+                ],
               ),
             ),
             AppSpacing.mediumVerticalSpacer,
@@ -42,19 +59,37 @@ class InfoDataScreen extends StatelessWidget {
                 builder: (BuildContext context,
                     AsyncSnapshot<List<DataModel>> snapshot) {
                   if (snapshot.hasData)
-                    return ListView.separated(
-                      padding: EdgeInsets.only(
-                        left: AppSpacing.screenPadding.left,
-                        right: AppSpacing.screenPadding.right,
-                        bottom: 20,
-                      ),
-                      physics: const BouncingScrollPhysics(),
-                      itemBuilder: (context, index) =>
-                          buildItem(snapshot, index),
-                      itemCount: snapshot.data.length,
-                      separatorBuilder: (context, index) =>
-                          AppSpacing.smallVerticalSpacer,
-                    );
+                    return kIsWeb
+                        ? StaggeredGridView.countBuilder(
+                            crossAxisCount: Get.width < 800 ? 1 : 3,
+                            mainAxisSpacing: 20,
+                            crossAxisSpacing: 20,
+                            padding: EdgeInsets.only(
+                              left: AppSpacing.screenPadding.left,
+                              right: AppSpacing.screenPadding.right,
+                              bottom: 20,
+                            ),
+                            shrinkWrap: true,
+                            physics: const BouncingScrollPhysics(),
+                            itemBuilder: (context, index) =>
+                                buildItem(snapshot, index),
+                            itemCount: snapshot.data.length,
+                            staggeredTileBuilder: (index) =>
+                                const StaggeredTile.fit(1),
+                          )
+                        : ListView.separated(
+                            padding: EdgeInsets.only(
+                              left: AppSpacing.screenPadding.left,
+                              right: AppSpacing.screenPadding.right,
+                              bottom: 20,
+                            ),
+                            physics: const BouncingScrollPhysics(),
+                            itemBuilder: (context, index) =>
+                                buildItem(snapshot, index),
+                            itemCount: snapshot.data.length,
+                            separatorBuilder: (context, index) =>
+                                AppSpacing.smallVerticalSpacer,
+                          );
                   else if (snapshot.hasError)
                     return Padding(
                       padding: EdgeInsets.only(
@@ -117,7 +152,7 @@ class InfoDataScreen extends StatelessWidget {
   Container buildItem(AsyncSnapshot<List<DataModel>> snapshot, int index) {
     return Container(
       padding: const EdgeInsets.all(20),
-      width: double.infinity,
+      constraints: const BoxConstraints(maxWidth: 600),
       decoration: BoxDecoration(
         color: Colors.white,
         boxShadow: [
@@ -131,6 +166,7 @@ class InfoDataScreen extends StatelessWidget {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -186,7 +222,7 @@ class InfoDataScreen extends StatelessWidget {
                               color: Colors.grey,
                             ),
                           ),
-                          const SizedBox(width: 20),
+                          const SizedBox(height: 15),
                           Text(
                             snapshot.data[index].location,
                             style: kTextTitle2Style.copyWith(
@@ -216,10 +252,14 @@ class InfoDataScreen extends StatelessWidget {
                   ),
                   CustomIconButton.issue(
                     issue: issue,
-                    icon: CustomIcons.send,
-                    function: () => Share.share(
-                      '*${snapshot.data[index].title}*\n\n${snapshot.data[index].disc}\n${snapshot.data[index].details}\n\nLocation: ${snapshot.data[index].location}\n${snapshot.data[index].locationURL}\n\nLast updated on: ${snapshot.data[index].datetime}',
-                    ),
+                    icon: kIsWeb ? Icons.copy : CustomIcons.send,
+                    function: () async => kIsWeb
+                        ? await FlutterClipboard.copy(
+                            '*${snapshot.data[index].title}*\n\n${snapshot.data[index].disc}\n${snapshot.data[index].details}\n\nLocation: ${snapshot.data[index].location}\n${snapshot.data[index].locationURL}\n\nLast updated on: ${snapshot.data[index].datetime}',
+                          )
+                        : Share.share(
+                            '*${snapshot.data[index].title}*\n\n${snapshot.data[index].disc}\n${snapshot.data[index].details}\n\nLocation: ${snapshot.data[index].location}\n${snapshot.data[index].locationURL}\n\nLast updated on: ${snapshot.data[index].datetime}',
+                          ),
                   ),
                 ],
               )
